@@ -75,7 +75,8 @@
                 <!-- DYNAMIC LOGO AREA -->
                 <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateTo('home')">
                     <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center p-1 border border-slate-200 shadow-sm overflow-hidden">
-                        <img src="Screenshot_2024-11-15_231942-removebg-preview.png" alt="MHS Logo" class="w-full h-full object-contain block">
+                        <!-- Dual Fallback: Tries ImgBB direct link first, then falls back to local file uploaded in GitHub -->
+                        <img src="https://i.ibb.co/XZZYMnhw/logo.png" onerror="this.onerror=null; this.src='Screenshot_2024-11-15_231942-removebg-preview.png';" alt="MHS Logo" class="w-full h-full object-contain block">
                     </div>
                     <div class="flex flex-col">
                         <span class="academic-title text-[#0B1E36] font-extrabold text-xl tracking-wider leading-none">MHS</span>
@@ -147,7 +148,8 @@
                     </div>
                 </div>
                 <div class="absolute right-6 bottom-6 opacity-10 text-9xl hidden md:block w-48 h-48">
-                    <img src="Screenshot_2024-11-15_231942-removebg-preview.png" alt="Watermark" class="w-full h-full object-contain filter brightness-0 invert">
+                    <!-- Dynamic Watermark Fallback -->
+                    <img src="https://i.ibb.co/XZZYMnhw/logo.png" onerror="this.onerror=null; this.src='Screenshot_2024-11-15_231942-removebg-preview.png';" alt="Watermark" class="w-full h-full object-contain filter brightness-0 invert">
                 </div>
             </div>
 
@@ -175,11 +177,11 @@
                 </div>
             </div>
 
-            <!-- FIXED DIRECTOR MESSAGE SECTION WITH YOUR TRUE NAME & PROFILE IMAGE PATH -->
+            <!-- ACADEMIC DIRECTOR MESSAGE SECTION (Verified Links and Fallbacks) -->
             <div class="glass-card rounded-2xl p-8 shadow-sm flex flex-col md:flex-row items-center gap-8 border-l-4 border-[#0B1E36]">
                 <div class="w-32 h-32 rounded-full bg-slate-100 flex items-center justify-center overflow-hidden shrink-0 border-2 border-[#D4AF37] shadow-md">
-                    <!-- Note: Upload your photo as director-pic.png on GitHub -->
-                    <img src="director-pic.png" alt="Muhammad Hamd Sultan" class="w-full h-full object-cover block" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/initials/svg?seed=MHS&backgroundColor=0b1e36&textColor=d4af37';">
+                    <!-- Live ImgBB link with direct local fallback file path -->
+                    <img src="https://i.ibb.co/N2MtcBqH/director.jpg" onerror="this.onerror=null; this.src='director-pic.png';" alt="Muhammad Hamd Sultan" class="w-full h-full object-cover block">
                 </div>
                 <div>
                     <h2 class="academic-title font-bold text-2xl text-[#0B1E36]" data-en="Message from Academic Director" data-ur="ڈائریکٹر اکیڈمکس کا پیغام">Message from Academic Director</h2>
@@ -189,7 +191,7 @@
             </div>
         </section>
 
-        <!-- ================= PAGE 2: SYLLABUS (Classes 5 to 10) ================= -->
+        <!-- ================= PAGE 2: SYLLABUS ================= -->
         <section id="page-syllabus" class="page-view">
             <div class="text-center mb-8">
                 <h1 class="academic-title text-3xl font-bold text-[#0B1E36]" data-en="Academic Syllabus 2026" data-ur="تعلیمی نصاب برائے 2026">Academic Syllabus 2026</h1>
@@ -209,7 +211,7 @@
                         <tbody class="divide-y text-slate-700 bg-white">
                             <tr class="hover:bg-slate-50 transition">
                                 <td class="p-4 font-semibold" data-en="Class 5" data-ur="پانچویں کلاس">Class 5</td>
-                                <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, General Science, Social Studies" data-ur="انگریزی، اردو، ریاضی، جنرل سائنس">English, Urdu, Mathematics, General Science</td>
+                                <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, General Science" data-ur="انگریزی، اردو، ریاضی، جنرل سائنس">English, Urdu, Mathematics, General Science</td>
                                 <td class="p-4 text-center">
                                     <a href="syllabus-class5.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
                                         <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download</span>
@@ -218,7 +220,7 @@
                             </tr>
                             <tr class="hover:bg-slate-50 transition">
                                 <td class="p-4 font-semibold" data-en="Class 6" data-ur="چھٹی کلاس">Class 6</td>
-                                <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, General Science, History & Geography" data-ur="انگریزی، اردو، ریاضی، سائنس">English, Urdu, Mathematics, General Science</td>
+                                <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, General Science" data-ur="انگریزی، اردو، ریاضی، سائنس">English, Urdu, Mathematics, General Science</td>
                                 <td class="p-4 text-center">
                                     <a href="syllabus-class6.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
                                         <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download</span>
@@ -227,7 +229,7 @@
                             </tr>
                             <tr class="hover:bg-slate-50 transition">
                                 <td class="p-4 font-semibold" data-en="Class 7" data-ur="ساتویں کلاس">Class 7</td>
-                                <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, Science, Computer Studies" data-ur="انگریزی، اردو، ریاضی، کمپیوٹر">English, Urdu, Mathematics, Science</td>
+                                <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, Science" data-ur="انگریزی، اردو، ریاضی، سائنس">English, Urdu, Mathematics, Science</td>
                                 <td class="p-4 text-center">
                                     <a href="syllabus-class7.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
                                         <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download</span>
@@ -236,7 +238,7 @@
                             </tr>
                             <tr class="hover:bg-slate-50 transition">
                                 <td class="p-4 font-semibold" data-en="Class 8" data-ur="آٹھویں کلاس">Class 8</td>
-                                <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, General Science, Computer" data-ur="انگریزی، اردو، ریاضی، سائنس">English, Urdu, Mathematics, General Science</td>
+                                <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, General Science" data-ur="انگریزی، اردو، ریاضی، سائنس">English, Urdu, Mathematics, General Science</td>
                                 <td class="p-4 text-center">
                                     <a href="syllabus-class8.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
                                         <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download</span>
@@ -244,8 +246,8 @@
                                 </td>
                             </tr>
                             <tr class="hover:bg-slate-50 transition">
-                                <td class="p-4 font-semibold" data-en="Class 9 (Matric / O-Level)" data-ur="نویں کلاس">Class 9</td>
-                                <td class="p-4 text-sm text-slate-500" data-en="Physics, Chemistry, Biology/Computer, Mathematics, English" data-ur="فزکس، کیمسٹری، بائیولوجی، ریاضی، انگریزی">Physics, Chemistry, Biology, Mathematics</td>
+                                <td class="p-4 font-semibold" data-en="Class 9" data-ur="نویں کلاس">Class 9</td>
+                                <td class="p-4 text-sm text-slate-500" data-en="Physics, Chemistry, Biology, Mathematics" data-ur="فزکس، کیمسٹری، بائیولوجی، ریاضی، انگریزی">Physics, Chemistry, Biology, Mathematics</td>
                                 <td class="p-4 text-center">
                                     <a href="syllabus-class9.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
                                         <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download</span>
@@ -253,8 +255,8 @@
                                 </td>
                             </tr>
                             <tr class="hover:bg-slate-50 transition">
-                                <td class="p-4 font-semibold" data-en="Class 10 (Matric / O-Level)" data-ur="دسویں کلاس">Class 10</td>
-                                <td class="p-4 text-sm text-slate-500" data-en="Physics, Chemistry, Biology, Mathematics, English, Islamiat, Pak Studies" data-ur="فزکس، کیمسٹری، بائیولوجی، ریاضی، مطالعہ پاکستان">Physics, Chemistry, Biology, Mathematics, Pak Studies</td>
+                                <td class="p-4 font-semibold" data-en="Class 10" data-ur="دسویں کلاس">Class 10</td>
+                                <td class="p-4 text-sm text-slate-500" data-en="Physics, Chemistry, Biology, Mathematics, Pak Studies" data-ur="فزکس، کیمسٹری، بائیولوجی، ریاضی، مطالعہ پاکستان">Physics, Chemistry, Biology, Mathematics, Pak Studies</td>
                                 <td class="p-4 text-center">
                                     <a href="syllabus-class10.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
                                         <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download</span>
@@ -316,7 +318,7 @@
             </div>
         </section>
 
-        <!-- ================= PAGE 4: ELITE ADMIT CARD WITH REAL QR VERIFICATION ================= -->
+        <!-- ================= PAGE 4: ADMIT CARD (Real QR-Status) ================= -->
         <section id="page-admit" class="page-view">
             <div class="text-center mb-8">
                 <h1 class="academic-title text-3xl font-bold text-[#0B1E36]" data-en="Generate Slip / Admit Card" data-ur="رول نمبر سلپ تیار کریں">Generate Slip / Admit Card</h1>
@@ -324,7 +326,6 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                <!-- FORM CONTROLS -->
                 <div class="lg:col-span-4 bg-white rounded-2xl p-6 shadow-sm border">
                     <h3 class="font-bold text-[#0B1E36] mb-4 border-b pb-2 flex items-center space-x-2">
                         <i class="fa-solid fa-sliders text-[#D4AF37]"></i>
@@ -333,15 +334,15 @@
                     <div class="space-y-4">
                         <div>
                             <label class="block text-xs font-bold uppercase text-slate-500 mb-1" data-en="Student Name" data-ur="طالب علم کا نام">Student Name</label>
-                            <input type="text" id="admit-name" placeholder="John Doe" value="Hassan Ali" class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                            <input type="text" id="admit-name" value="Hassan Ali" class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
                         </div>
                         <div>
                             <label class="block text-xs font-bold uppercase text-slate-500 mb-1" data-en="Father Name" data-ur="والد کا نام">Father Name</label>
-                            <input type="text" id="admit-father" placeholder="Muhammad Ali" value="Muhammad Rashid" class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                            <input type="text" id="admit-father" value="Muhammad Rashid" class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
                         </div>
                         <div>
                             <label class="block text-xs font-bold uppercase text-slate-500 mb-1" data-en="Roll Number" data-ur="رول نمبر">Roll Number</label>
-                            <input type="text" id="admit-roll" placeholder="MHS-2026-001" value="MHS-2026-948" class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                            <input type="text" id="admit-roll" value="MHS-2026-948" class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
                         </div>
                         <div>
                             <label class="block text-xs font-bold uppercase text-slate-500 mb-1" data-en="Select Class" data-ur="کلاس منتخب کریں">Select Class</label>
@@ -357,28 +358,24 @@
                         <div>
                             <label class="block text-xs font-bold uppercase text-slate-500 mb-1" data-en="Fee Payment Status" data-ur="فیس کا اسٹیٹس">Fee Payment Status</label>
                             <select id="admit-fee" class="w-full border rounded-lg px-3 py-2 text-sm font-bold text-green-700 bg-green-50 border-green-300 focus:ring focus:ring-green-300">
-                                <option value="Paid" selected class="text-green-700">🟢 Verified / Paid</option>
-                                <option value="Pending" class="text-red-600">🔴 Unpaid / Pending</option>
+                                <option value="Paid" selected>🟢 Verified / Paid</option>
+                                <option value="Pending">🔴 Unpaid / Pending</option>
                             </select>
                         </div>
                         <button onclick="updateAdmitCard()" class="w-full bg-[#D4AF37] hover:bg-[#AA820A] text-[#0B1E36] font-bold py-2.5 rounded-lg text-sm transition shadow-md" data-en="Update Admit Slip & QR" data-ur="سلپ اور کیو آر تیار کریں">Update Admit Slip & QR</button>
                     </div>
                 </div>
 
-                <!-- PREMIUM TICKET PREVIEW -->
                 <div class="lg:col-span-8">
                     <div id="print-area" class="bg-white rounded-2xl p-8 border-2 border-dashed border-slate-300 relative shadow-lg overflow-hidden">
-                        
-                        <!-- Watermark Logo Pattern in Background -->
                         <div class="absolute inset-0 opacity-[0.03] flex items-center justify-center pointer-events-none select-none">
-                            <img src="Screenshot_2024-11-15_231942-removebg-preview.png" alt="watermark" class="w-96 h-96 object-contain">
+                            <img src="https://i.ibb.co/XZZYMnhw/logo.png" onerror="this.onerror=null; this.src='Screenshot_2024-11-15_231942-removebg-preview.png';" alt="watermark" class="w-96 h-96 object-contain">
                         </div>
 
-                        <!-- Ticket Header -->
                         <div class="flex flex-col sm:flex-row items-center justify-between border-b-2 border-[#0B1E36] pb-4 mb-6 relative z-10 gap-4">
                             <div class="flex items-center space-x-3 text-center sm:text-left flex-col sm:flex-row">
                                 <div class="w-16 h-16 bg-white rounded-lg flex items-center justify-center p-1 border border-slate-200 shadow-sm overflow-hidden mb-2 sm:mb-0">
-                                    <img src="Screenshot_2024-11-15_231942-removebg-preview.png" alt="MHS Logo" class="w-full h-full object-contain">
+                                    <img src="https://i.ibb.co/XZZYMnhw/logo.png" onerror="this.onerror=null; this.src='Screenshot_2024-11-15_231942-removebg-preview.png';" alt="MHS Logo" class="w-full h-full object-contain">
                                 </div>
                                 <div class="sm:pl-2">
                                     <h4 class="academic-title font-black text-xl text-[#0B1E36] tracking-wide">MHS LEARNINGS</h4>
@@ -392,9 +389,7 @@
                             </div>
                         </div>
 
-                        <!-- Ticket Details Grid with QR side-by-side -->
                         <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-6 relative z-10">
-                            
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 w-full order-2 md:order-1">
                                 <div class="border-b pb-1">
                                     <span class="text-xs font-bold text-slate-400 uppercase" data-en="Student Name" data-ur="طالب علم کا نام">Student Name</span>
@@ -414,15 +409,12 @@
                                 </div>
                             </div>
 
-                            <!-- ADVANCED DYNAMIC QR CODE BOX -->
                             <div class="flex flex-col items-center justify-center p-3 bg-slate-50 border border-slate-200 rounded-xl shrink-0 order-1 md:order-2">
                                 <div id="qrcode" class="bg-white p-1.5 rounded border shadow-sm"></div>
                                 <span class="text-[10px] text-slate-400 font-bold tracking-wider mt-2 uppercase" data-en="Scan to Verify Status" data-ur="تصدیق کے لیے اسکین کریں">Scan to Verify Status</span>
                             </div>
-
                         </div>
 
-                        <!-- Warnings and Rules Box -->
                         <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 mb-6 relative z-10">
                             <h5 class="text-xs font-bold text-slate-700 uppercase mb-2 flex items-center gap-1">
                                 <i class="fa-solid fa-circle-exclamation text-amber-500"></i>
@@ -430,20 +422,17 @@
                             </h5>
                             <ul class="list-disc list-inside text-xs text-slate-500 space-y-1">
                                 <li data-en="Bring physical printed ticket to evaluation hall." data-ur="فزیکل طور پر پرنٹ شدہ سلپ امتحانی مرکز ہمراہ لانا لازمی ہے۔">Bring physical printed ticket to evaluation hall.</li>
-                                <li data-en="QR Verification on entry is mandatory. Slips with unpaid fee status will be restricted." data-ur="داخلے کے وقت کیو آر کوڈ کی تصدیق لازمی ہے۔ فیس ادا نہ ہونے کی صورت میں داخلہ ممنوع ہے۔">QR Verification on entry is mandatory. Slips with unpaid fee status will be restricted.</li>
-                                <li data-en="Mobile phones, digital logs, or cheat sheets are strictly forbidden." data-ur="موبائل فون یا کسی قسم کا ڈیجیٹل مواد امتحانی ہال لانے پر مکمل پابندی ہے۔">Mobile phones, digital logs, or cheat sheets are strictly forbidden.</li>
+                                <li data-en="QR Verification on entry is mandatory." data-ur="داخلے کے وقت کیو آر کوڈ کی تصدیق لازمی ہے۔">QR Verification on entry is mandatory.</li>
                             </ul>
                         </div>
 
-                        <!-- Footer Signatures Sign-Off -->
                         <div class="flex justify-between items-center text-xs text-slate-400 pt-4 border-t relative z-10">
-                            <span data-en="System Date: 2026-06-17" data-ur="سسٹم تاریخ: 2026-06-17">System Date: 2026-06-17</span>
+                            <span>System Date: 2026-06-17</span>
                             <div class="text-center">
                                 <span class="font-bold text-slate-700 italic border-b border-slate-300 pb-1 px-4 block">Muhammad Hamd Sultan</span>
                                 <span class="text-[10px] uppercase font-semibold mt-1 tracking-wider block" data-en="Academic Director Seal" data-ur="دستخط اکیڈمک ڈائریکٹر">Academic Director Seal</span>
                             </div>
                         </div>
-
                     </div>
                     
                     <button onclick="window.print()" class="mt-4 w-full bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] font-bold py-3 rounded-lg shadow-md transition flex items-center justify-center space-x-2">
@@ -454,79 +443,136 @@
             </div>
         </section>
 
-        <!-- ================= PAGE 5: REGISTRATION ================= -->
+        <!-- ================= PAGE 5: MULTI-REGISTRATION (Student vs School) ================= -->
         <section id="page-register" class="page-view">
-            <div class="text-center mb-8">
-                <h1 class="academic-title text-3xl font-bold text-[#0B1E36]" data-en="Inquiry & Admission Registration" data-ur="معلومات داخلہ اور رجسٹریشن فارم">Inquiry & Admission Registration</h1>
-                <p class="text-slate-500 mt-2" data-en="Register details online to acquire priority test bookings" data-ur="سیٹ بکنگ اور معلومات حاصل کرنے کے لیے فارم آن لائن پُر کریں۔">Register details online to acquire priority test bookings</p>
+            <div class="text-center mb-6">
+                <h1 class="academic-title text-3xl font-bold text-[#0B1E36]" data-en="Official Registration Center" data-ur="آفیشل رجسٹریشن مرکز">Official Registration Center</h1>
+                <p class="text-slate-500 mt-2" data-en="Submit credentials to book entries, request affiliation, or inquire details" data-ur="سیٹ بکنگ یا اسکول رجسٹریشن کے لیے نیچے دیے گئے آپشنز استعمال کریں۔">Submit credentials to book entries, request affiliation, or inquire details</p>
             </div>
 
             <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-md p-8 border">
+                
+                <!-- Tab Switching System -->
+                <div class="flex border-b mb-6 gap-2">
+                    <button type="button" onclick="switchRegTab('student')" id="reg-tab-student" class="flex-1 py-3 text-center font-bold text-sm border-b-2 border-[#0B1E36] text-[#0B1E36] transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-user-graduate"></i>
+                        <span data-en="Student Registration" data-ur="طالب علم رجسٹریشن">Student Registration</span>
+                    </button>
+                    <button type="button" onclick="switchRegTab('school')" id="reg-tab-school" class="flex-1 py-3 text-center font-bold text-sm border-b-2 border-transparent text-slate-400 hover:text-slate-600 transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-school"></i>
+                        <span data-en="School Registration" data-ur="اسکول رجسٹریشن">School Registration</span>
+                    </button>
+                </div>
+
                 <form onsubmit="handleRegistrationSubmit(event)">
                     <div class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="First Name" data-ur="پہلا نام">First Name</label>
-                                <input type="text" placeholder="Ali" required class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                        
+                        <!-- TAB A: STUDENT FIELDS (Enabled by Default) -->
+                        <div id="student-fields" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="First Name" data-ur="پہلا نام">First Name</label>
+                                    <input type="text" id="stud-first" placeholder="Ali" required class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Last Name" data-ur="آخری نام">Last Name</label>
+                                    <input type="text" id="stud-last" placeholder="Khan" required class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                                </div>
                             </div>
                             <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Last Name" data-ur="آخری نام">Last Name</label>
-                                <input type="text" placeholder="Khan" required class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                                <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Guardian Mobile Number" data-ur="سرپرست کا موبائل نمبر">Guardian Mobile Number</label>
+                                <div class="relative">
+                                    <span class="absolute left-3 top-2 text-slate-400 text-sm font-medium">+92</span>
+                                    <input type="tel" id="stud-phone" placeholder="3338623633" required class="w-full border rounded-lg pl-12 pr-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Class Seeking Admission" data-ur="مطلوبہ کلاس برائے داخلہ">Class Seeking Admission</label>
+                                <select id="stud-class" class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                                    <option>Class 5</option>
+                                    <option>Class 6</option>
+                                    <option>Class 7</option>
+                                    <option>Class 8</option>
+                                    <option>Class 9</option>
+                                    <option>Class 10</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Your Current School / City" data-ur="موجودہ اسکول اور شہر">Your School / City</label>
+                                <input type="text" id="stud-school" placeholder="APS, Lahore" required class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Additional Query" data-ur="مزید تفصیلات یا کوئی سوال">Additional Query</label>
+                                <textarea id="stud-query" rows="3" placeholder="..." class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300"></textarea>
                             </div>
                         </div>
 
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Guardian Mobile Number" data-ur="سرپرست کا موبائل نمبر">Guardian Mobile Number</label>
-                            <div class="relative">
-                                <span class="absolute left-3 top-2 text-slate-400 text-sm font-medium">+92</span>
-                                <input type="tel" placeholder="3338623633" required class="w-full border rounded-lg pl-12 pr-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                        <!-- TAB B: SCHOOL PARTNERSHIP FIELDS (Hidden by Default) -->
+                        <div id="school-fields" class="space-y-4" style="display: none;">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="School Name" data-ur="اسکول کا نام">School Name</label>
+                                <input type="text" id="sch-name" placeholder="MHS Public School" class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Principal / Owner Name" data-ur="پرنسپل / مالک کا نام">Principal / Owner Name</label>
+                                    <input type="text" id="sch-principal" placeholder="Muhammad Hamd Sultan" class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Estimated Students Count" data-ur="متوقع طلباء کی تعداد">Estimated Students Count</label>
+                                    <select id="sch-count" class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                                        <option>1 - 50</option>
+                                        <option>51 - 150</option>
+                                        <option>151 - 300</option>
+                                        <option>300+</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Official School Phone" data-ur="اسکول کا فون نمبر">Official School Phone</label>
+                                    <div class="relative">
+                                        <span class="absolute left-3 top-2 text-slate-400 text-sm font-medium">+92</span>
+                                        <input type="tel" id="sch-phone" placeholder="3124266828" class="w-full border rounded-lg pl-12 pr-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="School Email Address" data-ur="اسکول کا ای میل ایڈریس">School Email Address</label>
+                                    <input type="email" id="sch-email" placeholder="school@mhslearnings.com" class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Campus City / Branch Address" data-ur="برانچ کا پتہ اور شہر">Campus City / Branch Address</label>
+                                <input type="text" id="sch-address" placeholder="Lahore, Pakistan" class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Affiliation Requirements" data-ur="الحاق کی ضروریات یا پیغام">Affiliation Requirements</label>
+                                <textarea id="sch-query" rows="3" placeholder="..." class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300"></textarea>
                             </div>
                         </div>
 
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Class Seeking Admission" data-ur="مطلوبہ کلاس برائے داخلہ">Class Seeking Admission</label>
-                            <select class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
-                                <option>Class 5</option>
-                                <option>Class 6</option>
-                                <option>Class 7</option>
-                                <option>Class 8</option>
-                                <option>Class 9</option>
-                                <option>Class 10</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Your School / City" data-ur="موجودہ اسکول اور شہر">Your School / City</label>
-                            <input type="text" placeholder="APS, Lahore" required class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Additional Query (If Any)" data-ur="مزید تفصیلات یا کوئی سوال">Additional Query (If Any)</label>
-                            <textarea rows="4" placeholder="..." class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300"></textarea>
-                        </div>
-
+                        <!-- Agreement Checkbox -->
                         <div class="flex items-start">
                             <input type="checkbox" required class="mt-1 mr-2 rounded border-slate-300 text-[#0B1E36] focus:ring-[#0B1E36]">
-                            <p class="text-xs text-slate-500 leading-tight" data-en="I agree that all information entered is valid and matches academic certificates." data-ur="میں اس بات سے متفق ہوں کہ درج کردہ تمام معلومات درست اور اسکول سرٹیفکیٹس کے مطابق ہیں۔">I agree that all information entered is valid and matches academic certificates.</p>
+                            <p class="text-xs text-slate-500 leading-tight" data-en="I agree that all information entered is valid." data-ur="میں اس بات سے متفق ہوں کہ درج کردہ تمام معلومات درست ہیں۔">I agree that all information entered is valid.</p>
                         </div>
 
-                        <button type="submit" class="w-full bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] font-bold py-3 rounded-lg shadow transition" data-en="Submit Application Inquiry" data-ur="معلومات داخلہ جمع کروائیں">Submit Application Inquiry</button>
+                        <!-- Submit Button (With Dynamic Language Switching Label) -->
+                        <button type="submit" id="reg-submit-btn" class="w-full bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] font-bold py-3 rounded-lg shadow transition" data-en="Submit Student Inquiry" data-ur="طالب علم کی معلومات جمع کروائیں">Submit Student Inquiry</button>
                     </div>
                 </form>
             </div>
         </section>
-
     </main>
 
-    <!-- PERSISTENT ACCREDITED FOOTER WITH FULL CONTACTS -->
+    <!-- FOOTER WITH CONTACT DETAILS -->
     <footer class="bg-[#0B1E36] text-white border-t-4 border-[#D4AF37] py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6 text-center md:text-left">
-                
                 <div class="space-y-3">
                     <div class="flex items-center justify-center md:justify-start space-x-3">
                         <div class="w-10 h-10 bg-white rounded-md flex items-center justify-center p-0.5 border border-[#D4AF37] overflow-hidden">
-                            <img src="Screenshot_2024-11-15_231942-removebg-preview.png" alt="MHS Footer Logo" class="w-full h-full object-contain">
+                            <img src="https://i.ibb.co/XZZYMnhw/logo.png" onerror="this.onerror=null; this.src='Screenshot_2024-11-15_231942-removebg-preview.png';" alt="MHS Footer Logo" class="w-full h-full object-contain">
                         </div>
                         <span class="academic-title text-xl font-bold tracking-wider">MHS Learnings</span>
                     </div>
@@ -534,56 +580,47 @@
                 </div>
 
                 <div class="space-y-2">
-                    <h4 class="text-[#D4AF37] font-bold text-sm tracking-wider uppercase" data-en="PORTAL PAGES" data-ur="پورٹل صفحات">PORTAL PAGES</h4>
+                    <h4 class="text-[#D4AF37] font-bold text-sm tracking-wider uppercase">PORTAL PAGES</h4>
                     <div class="flex flex-col space-y-1.5 text-sm text-slate-400">
-                        <a href="javascript:void(0)" onclick="navigateTo('home')" class="hover:text-white transition" data-en="Home" data-ur="ہوم">Home</a>
-                        <a href="javascript:void(0)" onclick="navigateTo('syllabus')" class="hover:text-white transition" data-en="Syllabus" data-ur="نصاب">Syllabus</a>
-                        <a href="javascript:void(0)" onclick="navigateTo('papers')" class="hover:text-white transition" data-en="Sample Papers" data-ur="نمونہ پرچے">Sample Papers</a>
-                        <a href="javascript:void(0)" onclick="navigateTo('admit')" class="hover:text-white transition" data-en="Admit Slip Tool" data-ur="ایڈمٹ کارڈ ٹول">Admit Slip Tool</a>
+                        <a href="javascript:void(0)" onclick="navigateTo('home')" class="hover:text-white transition">Home</a>
+                        <a href="javascript:void(0)" onclick="navigateTo('syllabus')" class="hover:text-white transition">Syllabus</a>
+                        <a href="javascript:void(0)" onclick="navigateTo('papers')" class="hover:text-white transition">Sample Papers</a>
                     </div>
                 </div>
 
                 <div class="space-y-2">
-                    <h4 class="text-[#D4AF37] font-bold text-sm tracking-wider uppercase" data-en="HELP DESK CONTACT" data-ur="معلومات و مدد">HELP DESK CONTACT</h4>
-                    <p class="text-slate-400 text-sm flex items-center justify-center md:justify-start space-x-2">
-                        <i class="fa-solid fa-envelope text-[#D4AF37] shrink-0"></i>
-                        <span>mhslearnings.medical@gmail.com</span>
-                    </p>
-                    <p class="text-slate-400 text-sm flex items-center justify-center md:justify-start space-x-2">
-                        <i class="fa-solid fa-phone text-[#D4AF37] shrink-0"></i>
-                        <span>+92 333 8623633</span>
-                    </p>
-                    <p class="text-slate-400 text-sm flex items-center justify-center md:justify-start space-x-2">
-                        <i class="fa-solid fa-mobile-button text-[#D4AF37] shrink-0"></i>
-                        <span>+92 312 4266828</span>
-                    </p>
+                    <h4 class="text-[#D4AF37] font-bold text-sm tracking-wider uppercase">HELP DESK CONTACT</h4>
+                    <p class="text-slate-400 text-sm"><i class="fa-solid fa-envelope text-[#D4AF37] mr-2"></i>mhslearnings.medical@gmail.com</p>
+                    <p class="text-slate-400 text-sm"><i class="fa-solid fa-phone text-[#D4AF37] mr-2"></i>+92 333 8623633</p>
+                    <p class="text-slate-400 text-sm"><i class="fa-solid fa-mobile-button text-[#D4AF37] mr-2"></i>+92 312 4266828</p>
                 </div>
-
             </div>
 
             <div class="border-t border-slate-800 pt-6 text-center text-xs text-slate-500 flex flex-col md:flex-row justify-between items-center gap-4">
-                <span data-en="&copy; 2026 MHS Learnings. All Rights Reserved." data-ur="&copy; 2026 ایم ایچ ایس لرننگز۔ جملہ حقوق محفوظ ہیں۔">&copy; 2026 MHS Learnings. All Rights Reserved.</span>
-                <span data-en="Designed for Professional Academic Excellence" data-ur="بہترین تعلیمی اور امتحانی مقاصد کے لیے تیار کردہ">Designed for Professional Academic Excellence</span>
+                <span>&copy; 2026 MHS Learnings. All Rights Reserved.</span>
+                <span>Designed for Professional Academic Excellence</span>
             </div>
         </div>
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT SYSTEM FOR PAGINATION, LANGUAGES & REAL QR CODE -->
+    <!-- INTERACTIVE JAVASCRIPT SYSTEM -->
     <script>
         let currentLanguage = 'en'; 
         let currentPage = 'home';
         let qrCodeInstance = null;
+        let activeRegTab = 'student';
 
-        // Initialize default QR Code on Page Load
         window.addEventListener('DOMContentLoaded', () => {
             qrCodeInstance = new QRCode(document.getElementById("qrcode"), {
-                text: "Student: Hassan Ali | Roll: MHS-2026-948 | Class: Class 8 | Status: Fee Paid",
+                text: "Student: Hassan Ali | Roll: MHS-2026-948 | Class: Class 8 | Status: Paid",
                 width: 100,
                 height: 100,
                 colorDark : "#0B1E36",
                 colorLight : "#ffffff",
                 correctLevel : QRCode.CorrectLevel.H
             });
+            // Initializing inputs requirement logic
+            switchRegTab('student');
         });
 
         function navigateTo(pageId) {
@@ -618,7 +655,6 @@
 
         function toggleLanguage() {
             currentLanguage = (currentLanguage === 'en') ? 'ur' : 'en';
-            
             const body = document.body;
             const langBtnText = document.getElementById('lang-btn-text');
 
@@ -635,16 +671,79 @@
             const allElements = document.querySelectorAll('[data-en], [data-ur]');
             allElements.forEach(el => {
                 const targetText = (currentLanguage === 'en') ? el.getAttribute('data-en') : el.getAttribute('data-ur');
-                
                 if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
                     el.setAttribute('placeholder', targetText);
                 } else {
                     el.innerText = targetText;
                 }
             });
+
+            // Adjust the active registration submit button text translation as well
+            switchRegTab(activeRegTab);
         }
 
-        // UPDATED METHOD FOR REAL-TIME PREVIEW + REAL QR GENERATION WITH FEE STATUS
+        // SMART REGISTRATION TAB SWITCHER WITH REQUIREMENT ATTRIBUTE ADJUSTMENTS
+        function switchRegTab(tabType) {
+            activeRegTab = tabType;
+            const studentTab = document.getElementById('reg-tab-student');
+            const schoolTab = document.getElementById('reg-tab-school');
+            const studentFields = document.getElementById('student-fields');
+            const schoolFields = document.getElementById('school-fields');
+            const submitBtn = document.getElementById('reg-submit-btn');
+
+            // Dynamic Inputs list
+            const studInputs = [
+                document.getElementById('stud-first'),
+                document.getElementById('stud-last'),
+                document.getElementById('stud-phone'),
+                document.getElementById('stud-school')
+            ];
+
+            const schInputs = [
+                document.getElementById('sch-name'),
+                document.getElementById('sch-principal'),
+                document.getElementById('sch-phone'),
+                document.getElementById('sch-email'),
+                document.getElementById('sch-address')
+            ];
+
+            if (tabType === 'student') {
+                studentTab.classList.add('border-[#0B1E36]', 'text-[#0B1E36]');
+                studentTab.classList.remove('border-transparent', 'text-slate-400');
+                
+                schoolTab.classList.add('border-transparent', 'text-slate-400');
+                schoolTab.classList.remove('border-[#0B1E36]', 'text-[#0B1E36]');
+                
+                studentFields.style.display = 'block';
+                schoolFields.style.display = 'none';
+
+                // Set HTML5 Validation states
+                studInputs.forEach(input => input.setAttribute('required', 'true'));
+                schInputs.forEach(input => input.removeAttribute('required'));
+                
+                submitBtn.setAttribute('data-en', 'Submit Student Inquiry');
+                submitBtn.setAttribute('data-ur', 'طالب علم کی معلومات جمع کروائیں');
+                submitBtn.innerText = currentLanguage === 'en' ? 'Submit Student Inquiry' : 'طالب علم کی معلومات جمع کروائیں';
+            } else {
+                schoolTab.classList.add('border-[#0B1E36]', 'text-[#0B1E36]');
+                schoolTab.classList.remove('border-transparent', 'text-slate-400');
+                
+                studentTab.classList.add('border-transparent', 'text-slate-400');
+                studentTab.classList.remove('border-[#0B1E36]', 'text-[#0B1E36]');
+                
+                studentFields.style.display = 'none';
+                schoolFields.style.display = 'block';
+
+                // Set HTML5 Validation states
+                studInputs.forEach(input => input.removeAttribute('required'));
+                schInputs.forEach(input => input.setAttribute('required', 'true'));
+                
+                submitBtn.setAttribute('data-en', 'Submit School Partnership');
+                submitBtn.setAttribute('data-ur', 'اسکول رجسٹریشن جمع کروائیں');
+                submitBtn.innerText = currentLanguage === 'en' ? 'Submit School Partnership' : 'اسکول رجسٹریشن جمع کروائیں';
+            }
+        }
+
         function updateAdmitCard() {
             const inputName = document.getElementById('admit-name').value.trim();
             const inputFather = document.getElementById('admit-father').value.trim();
@@ -653,17 +752,15 @@
             const inputFee = document.getElementById('admit-fee').value;
 
             if(!inputName || !inputFather || !inputRoll) {
-                alert(currentLanguage === 'en' ? "Please fill all fields first!" : "برائے مہربانی پہلے تمام خانے پُر کریں!");
+                alert("Please fill all fields!");
                 return;
             }
 
-            // Update Text Details
             document.getElementById('card-name').innerText = inputName;
             document.getElementById('card-father').innerText = inputFather;
             document.getElementById('card-roll').innerText = inputRoll;
             document.getElementById('card-class').innerText = inputClass;
 
-            // Handle Fee Badge Styling & UI dynamically
             const badge = document.getElementById('slip-fee-badge');
             if (inputFee === 'Paid') {
                 badge.className = "bg-green-600 text-white text-xs font-bold uppercase px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1";
@@ -673,17 +770,11 @@
                 badge.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Unpaid`;
             }
 
-            // Regenerate the QR Code with complete dynamic content
-            const qrTextData = `Student: ${inputName} | Father: ${inputFather} | Roll No: ${inputRoll} | Class: ${inputClass} | Fee Status: ${inputFee}`;
+            const qrTextData = `Student: ${inputName} | Roll No: ${inputRoll} | Class: ${inputClass} | Status: ${inputFee}`;
             if(qrCodeInstance) {
                 qrCodeInstance.clear();
                 qrCodeInstance.makeCode(qrTextData);
             }
-
-            // Visual flash indicator
-            const targetArea = document.getElementById('print-area');
-            targetArea.style.borderColor = '#D4AF37';
-            setTimeout(() => { targetArea.style.borderColor = '#cbd5e1'; }, 800);
         }
 
         function handleRegistrationSubmit(event) {
@@ -695,6 +786,5 @@
             event.target.reset();
         }
     </script>
-
 </body>
 </html>
