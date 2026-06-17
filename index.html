@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Inter:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
     <!-- FontAwesome for professional icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- QRCodeJS Library for generating genuine student QR codes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     
     <style>
         :root {
@@ -70,10 +72,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
-                <!-- DYNAMIC LOGO AREA (Updated with your custom image) -->
+                <!-- DYNAMIC LOGO AREA -->
                 <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateTo('home')">
-                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center p-1 border border-slate-200 shadow-sm">
-                        <img src="Screenshot_2024-11-15_231942-removebg-preview.png" alt="MHS Logo" class="w-full h-full object-contain">
+                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center p-1 border border-slate-200 shadow-sm overflow-hidden">
+                        <img src="Screenshot_2024-11-15_231942-removebg-preview.png" alt="MHS Logo" class="w-full h-full object-contain block">
                     </div>
                     <div class="flex flex-col">
                         <span class="academic-title text-[#0B1E36] font-extrabold text-xl tracking-wider leading-none">MHS</span>
@@ -154,7 +156,7 @@
                     <div class="p-3 bg-blue-50 text-[#0B1E36] rounded-lg text-2xl"><i class="fa-solid fa-file-pdf"></i></div>
                     <div>
                         <h3 class="font-bold text-lg text-[#0B1E36]" data-en="Curriculum & Syllabus" data-ur="نصاب اور تعلیمی مواد">Curriculum & Syllabus</h3>
-                        <p class="text-slate-500 text-sm mt-1" data-en="Syllabus tailored according to national educational standards for all categories." data-ur="تمام کیٹیگریز کے لیے قومی تعلیمی معیار کے مطابق نصاب۔">Syllabus tailored according to national educational standards for all categories.</p>
+                        <p class="text-slate-500 text-sm mt-1" data-en="Syllabus tailored according to national educational standards for all classes from 5 to 10." data-ur="کلاس 5 سے 10 تک تمام کیٹیگریز کے لیے تعلیمی معیار کے مطابق نصاب۔">Syllabus tailored according to national educational standards for all classes from 5 to 10.</p>
                     </div>
                 </div>
                 <div class="glass-card rounded-xl p-6 shadow-sm flex items-start space-x-4">
@@ -167,70 +169,101 @@
                 <div class="glass-card rounded-xl p-6 shadow-sm flex items-start space-x-4">
                     <div class="p-3 bg-green-50 text-green-600 rounded-lg text-2xl"><i class="fa-solid fa-id-card"></i></div>
                     <div>
-                        <h3 class="font-bold text-lg text-[#0B1E36]" data-en="Instant Slips" data-ur="رول نمبر سلپس">Instant Slips</h3>
-                        <p class="text-slate-500 text-sm mt-1" data-en="Print official entry admit cards instantly from our dynamic database system." data-ur="ہمارے متحرک ڈیٹا بیس سسٹم سے فوری طور پر رول نمبر سلپ پرنٹ کریں۔">Print official entry admit cards instantly from our dynamic database system.</p>
+                        <h3 class="font-bold text-lg text-[#0B1E36]" data-en="Instant Slips with QR" data-ur="رول نمبر سلپس مع QR">Instant Slips with QR</h3>
+                        <p class="text-slate-500 text-sm mt-1" data-en="Print entry admit cards instantly with an integrated fee status QR verification system." data-ur="فیس کی تصدیق والے جدید QR کوڈ سسٹم کے ساتھ فوری رول نمبر سلپ پرنٹ کریں۔">Print entry admit cards instantly with an integrated fee status QR verification system.</p>
                     </div>
                 </div>
             </div>
 
+            <!-- FIXED DIRECTOR MESSAGE SECTION WITH YOUR TRUE NAME & PROFILE IMAGE PATH -->
             <div class="glass-card rounded-2xl p-8 shadow-sm flex flex-col md:flex-row items-center gap-8 border-l-4 border-[#0B1E36]">
-                <div class="w-32 h-32 rounded-lg bg-white flex items-center justify-center p-2 shrink-0 border-2 border-[#D4AF37] shadow-sm">
-                    <img src="Screenshot_2024-11-15_231942-removebg-preview.png" alt="Director Stamp" class="w-full h-full object-contain">
+                <div class="w-32 h-32 rounded-full bg-slate-100 flex items-center justify-center overflow-hidden shrink-0 border-2 border-[#D4AF37] shadow-md">
+                    <!-- Note: Upload your photo as director-pic.png on GitHub -->
+                    <img src="director-pic.png" alt="Muhammad Hamd Sultan" class="w-full h-full object-cover block" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/initials/svg?seed=MHS&backgroundColor=0b1e36&textColor=d4af37';">
                 </div>
                 <div>
                     <h2 class="academic-title font-bold text-2xl text-[#0B1E36]" data-en="Message from Academic Director" data-ur="ڈائریکٹر اکیڈمکس کا پیغام">Message from Academic Director</h2>
-                    <p class="text-slate-600 mt-3 leading-relaxed italic" data-en="&quot;Our mission at MHS Learnings is to bring transparent, modern, and easily accessible evaluation standards for school students nationwide. This portal acts as your ultimate resource hub for syllabi and testing guidance.&quot;" data-ur="&quot;ایم ایچ ایس لرننگز پر ہمارا مقصد ملک بھر کے اسکول کے طلباء کے لیے شفاف، جدید اور آسان امتحانی معیارات متعارف کرانا ہے۔ یہ پورٹل آپ کی تعلیمی رہنمائی کا حتمی مرکز ہے۔&quot;">"Our mission at MHS Learnings is to bring transparent, modern, and easily accessible evaluation standards for school students nationwide. This portal acts as your ultimate resource hub for syllabi and testing guidance."</p>
-                    <p class="text-[#0B1E36] font-bold mt-4" data-en="— Prof. Muhammad Haris Sohail" data-ur="— پروفیسر محمد حارث سہیل">— Prof. Muhammad Haris Sohail</p>
+                    <p class="text-slate-600 mt-3 leading-relaxed italic" data-en="&quot;Our mission at MHS Learnings is to bring transparent, modern, and easily accessible evaluation standards for school students nationwide. This portal acts as your ultimate resource hub for syllabi, instant roll number slips, and testing guidance.&quot;" data-ur="&quot;ایم ایچ ایس لرننگز پر ہمارا مقصد ملک بھر کے اسکول کے طلباء کے لیے شفاف، جدید اور آسان امتحانی معیارات متعارف کرانا ہے۔ یہ پورٹل آپ کی تعلیمی رہنمائی کا حتمی مرکز ہے۔&quot;">"Our mission at MHS Learnings is to bring transparent, modern, and easily accessible evaluation standards for school students nationwide. This portal acts as your ultimate resource hub for syllabi, instant roll number slips, and testing guidance."</p>
+                    <p class="text-[#0B1E36] font-bold mt-4 text-base tracking-wide" data-en="— Muhammad Hamd Sultan" data-ur="— محمد حمد سلطان">— Muhammad Hamd Sultan</p>
                 </div>
             </div>
         </section>
 
-        <!-- ================= PAGE 2: SYLLABUS ================= -->
+        <!-- ================= PAGE 2: SYLLABUS (Classes 5 to 10) ================= -->
         <section id="page-syllabus" class="page-view">
             <div class="text-center mb-8">
                 <h1 class="academic-title text-3xl font-bold text-[#0B1E36]" data-en="Academic Syllabus 2026" data-ur="تعلیمی نصاب برائے 2026">Academic Syllabus 2026</h1>
-                <p class="text-slate-500 mt-2" data-en="Download syllabus files matching national and international school structures" data-ur="قومی اور بین الاقوامی تعلیمی معیارات کے مطابق مرتب کردہ نصاب ڈاؤن لوڈ کریں۔">Download syllabus files matching national and international school structures</p>
+                <p class="text-slate-500 mt-2" data-en="Download complete syllabus patterns for all classes from Class 5 to Class 10" data-ur="کلاس 5 سے کلاس 10 تک تمام کلاسز کے لیے مکمل نصاب ڈاؤن لوڈ کریں۔">Download complete syllabus patterns for all classes from Class 5 to Class 10</p>
             </div>
 
             <div class="glass-card rounded-2xl shadow-sm overflow-hidden">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-[#0B1E36] text-white">
-                            <th class="p-4 text-sm font-bold uppercase tracking-wider" data-en="Class Category" data-ur="کلاس کیٹیگری">Class Category</th>
-                            <th class="p-4 text-sm font-bold uppercase tracking-wider" data-en="Subjects Covered" data-ur="شامل مضامین">Subjects Covered</th>
-                            <th class="p-4 text-sm font-bold uppercase tracking-wider text-center" data-en="Download Syllabus File" data-ur="ڈاؤن لوڈ فائل">Download Syllabus File</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y text-slate-700">
-                        <tr class="hover:bg-slate-50 transition">
-                            <td class="p-4 font-semibold" data-en="Primary (Classes 1 - 5)" data-ur="پرائمری (کلاس 1 تا 5)">Primary (Classes 1 - 5)</td>
-                            <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, General Science" data-ur="انگریزی، اردو، ریاضی، جنرل سائنس">English, Urdu, Mathematics, General Science</td>
-                            <td class="p-4 text-center">
-                                <a href="syllabus-primary.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
-                                    <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download PDF</span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition">
-                            <td class="p-4 font-semibold" data-en="Middle School (Classes 6 - 8)" data-ur="مڈل اسکول (کلاس 6 تا 8)">Middle School (Classes 6 - 8)</td>
-                            <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, Science, Social Studies, Computer" data-ur="انگریزی، اردو، ریاضی، سائنس، سماجی علوم، کمپیوٹر">English, Urdu, Mathematics, Science, Social Studies, Computer</td>
-                            <td class="p-4 text-center">
-                                <a href="syllabus-middle.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
-                                    <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download PDF</span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition">
-                            <td class="p-4 font-semibold" data-en="Secondary (Matric / O-Levels)" data-ur="سیکنڈری (میٹرک / او لیول)">Secondary (Matric / O-Levels)</td>
-                            <td class="p-4 text-sm text-slate-500" data-en="Physics, Chemistry, Biology, Mathematics, English, Pak Studies" data-ur="فزکس، کیمسٹری، بائیولوجی، ریاضی، انگریزی، مطالعہ پاکستان">Physics, Chemistry, Biology, Mathematics, English, Pak Studies</td>
-                            <td class="p-4 text-center">
-                                <a href="syllabus-secondary.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
-                                    <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download PDF</span>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-[#0B1E36] text-white">
+                                <th class="p-4 text-sm font-bold uppercase tracking-wider" data-en="Class Category" data-ur="کلاس">Class Category</th>
+                                <th class="p-4 text-sm font-bold uppercase tracking-wider" data-en="Subjects Covered" data-ur="شامل مضامین">Subjects Covered</th>
+                                <th class="p-4 text-sm font-bold uppercase tracking-wider text-center" data-en="Download File" data-ur="ڈاؤن لوڈ">Download File</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y text-slate-700 bg-white">
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 font-semibold" data-en="Class 5" data-ur="پانچویں کلاس">Class 5</td>
+                                <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, General Science, Social Studies" data-ur="انگریزی، اردو، ریاضی، جنرل سائنس">English, Urdu, Mathematics, General Science</td>
+                                <td class="p-4 text-center">
+                                    <a href="syllabus-class5.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
+                                        <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 font-semibold" data-en="Class 6" data-ur="چھٹی کلاس">Class 6</td>
+                                <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, General Science, History & Geography" data-ur="انگریزی، اردو، ریاضی، سائنس">English, Urdu, Mathematics, General Science</td>
+                                <td class="p-4 text-center">
+                                    <a href="syllabus-class6.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
+                                        <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 font-semibold" data-en="Class 7" data-ur="ساتویں کلاس">Class 7</td>
+                                <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, Science, Computer Studies" data-ur="انگریزی، اردو، ریاضی، کمپیوٹر">English, Urdu, Mathematics, Science</td>
+                                <td class="p-4 text-center">
+                                    <a href="syllabus-class7.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
+                                        <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 font-semibold" data-en="Class 8" data-ur="آٹھویں کلاس">Class 8</td>
+                                <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, General Science, Computer" data-ur="انگریزی، اردو، ریاضی، سائنس">English, Urdu, Mathematics, General Science</td>
+                                <td class="p-4 text-center">
+                                    <a href="syllabus-class8.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
+                                        <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 font-semibold" data-en="Class 9 (Matric / O-Level)" data-ur="نویں کلاس">Class 9</td>
+                                <td class="p-4 text-sm text-slate-500" data-en="Physics, Chemistry, Biology/Computer, Mathematics, English" data-ur="فزکس، کیمسٹری، بائیولوجی، ریاضی، انگریزی">Physics, Chemistry, Biology, Mathematics</td>
+                                <td class="p-4 text-center">
+                                    <a href="syllabus-class9.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
+                                        <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 font-semibold" data-en="Class 10 (Matric / O-Level)" data-ur="دسویں کلاس">Class 10</td>
+                                <td class="p-4 text-sm text-slate-500" data-en="Physics, Chemistry, Biology, Mathematics, English, Islamiat, Pak Studies" data-ur="فزکس، کیمسٹری، بائیولوجی، ریاضی، مطالعہ پاکستان">Physics, Chemistry, Biology, Mathematics, Pak Studies</td>
+                                <td class="p-4 text-center">
+                                    <a href="syllabus-class10.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
+                                        <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download</span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 
@@ -283,16 +316,20 @@
             </div>
         </section>
 
-        <!-- ================= PAGE 4: ADMIT CARD ================= -->
+        <!-- ================= PAGE 4: ELITE ADMIT CARD WITH REAL QR VERIFICATION ================= -->
         <section id="page-admit" class="page-view">
             <div class="text-center mb-8">
                 <h1 class="academic-title text-3xl font-bold text-[#0B1E36]" data-en="Generate Slip / Admit Card" data-ur="رول نمبر سلپ تیار کریں">Generate Slip / Admit Card</h1>
-                <p class="text-slate-500 mt-2" data-en="Enter student details below to generate and print your official verification ticket" data-ur="تفصیلات درج کریں تاکہ امتحانی ہال میں داخلے کا اجازت نامہ (سلپ) حاصل کر سکیں۔">Enter student details below to generate and print your official verification ticket</p>
+                <p class="text-slate-500 mt-2" data-en="Enter student details and verify fees to generate an authorized QR-enabled access ticket" data-ur="تفصیلات درج کریں اور فیس کی تصدیق کر کے کیو آر کوڈ والی سلپ حاصل کریں۔">Enter student details and verify fees to generate an authorized QR-enabled access ticket</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- FORM CONTROLS -->
                 <div class="lg:col-span-4 bg-white rounded-2xl p-6 shadow-sm border">
-                    <h3 class="font-bold text-[#0B1E36] mb-4 border-b pb-2" data-en="Admit Information" data-ur="معلومات برائے سلپ">Admit Information</h3>
+                    <h3 class="font-bold text-[#0B1E36] mb-4 border-b pb-2 flex items-center space-x-2">
+                        <i class="fa-solid fa-sliders text-[#D4AF37]"></i>
+                        <span data-en="Admit Information" data-ur="معلومات برائے سلپ">Admit Information</span>
+                    </h3>
                     <div class="space-y-4">
                         <div>
                             <label class="block text-xs font-bold uppercase text-slate-500 mb-1" data-en="Student Name" data-ur="طالب علم کا نام">Student Name</label>
@@ -310,72 +347,108 @@
                             <label class="block text-xs font-bold uppercase text-slate-500 mb-1" data-en="Select Class" data-ur="کلاس منتخب کریں">Select Class</label>
                             <select id="admit-class" class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
                                 <option value="Class 5">Class 5</option>
+                                <option value="Class 6">Class 6</option>
+                                <option value="Class 7">Class 7</option>
                                 <option value="Class 8" selected>Class 8</option>
-                                <option value="Matric (Class 10)">Matric (Class 10)</option>
+                                <option value="Class 9">Class 9</option>
+                                <option value="Class 10">Class 10</option>
                             </select>
                         </div>
-                        <button onclick="updateAdmitCard()" class="w-full bg-[#D4AF37] hover:bg-[#AA820A] text-[#0B1E36] font-bold py-2.5 rounded-lg text-sm transition" data-en="Generate Admit Slip" data-ur="سلپ تیار کریں">Generate Admit Slip</button>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-500 mb-1" data-en="Fee Payment Status" data-ur="فیس کا اسٹیٹس">Fee Payment Status</label>
+                            <select id="admit-fee" class="w-full border rounded-lg px-3 py-2 text-sm font-bold text-green-700 bg-green-50 border-green-300 focus:ring focus:ring-green-300">
+                                <option value="Paid" selected class="text-green-700">🟢 Verified / Paid</option>
+                                <option value="Pending" class="text-red-600">🔴 Unpaid / Pending</option>
+                            </select>
+                        </div>
+                        <button onclick="updateAdmitCard()" class="w-full bg-[#D4AF37] hover:bg-[#AA820A] text-[#0B1E36] font-bold py-2.5 rounded-lg text-sm transition shadow-md" data-en="Update Admit Slip & QR" data-ur="سلپ اور کیو آر تیار کریں">Update Admit Slip & QR</button>
                     </div>
                 </div>
 
-                <!-- Preview Slip Visual Layout with Custom Logo -->
+                <!-- PREMIUM TICKET PREVIEW -->
                 <div class="lg:col-span-8">
-                    <div id="print-area" class="bg-white rounded-2xl p-8 border-2 border-dashed border-slate-300 relative shadow-md">
-                        <div class="flex items-center justify-between border-b-2 border-[#0B1E36] pb-4 mb-6">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center p-1 border border-slate-100 shadow-sm">
-                                    <img src="Screenshot_2024-11-15_231942-removebg-preview.png" alt="MHS Custom Logo" class="w-full h-full object-contain">
+                    <div id="print-area" class="bg-white rounded-2xl p-8 border-2 border-dashed border-slate-300 relative shadow-lg overflow-hidden">
+                        
+                        <!-- Watermark Logo Pattern in Background -->
+                        <div class="absolute inset-0 opacity-[0.03] flex items-center justify-center pointer-events-none select-none">
+                            <img src="Screenshot_2024-11-15_231942-removebg-preview.png" alt="watermark" class="w-96 h-96 object-contain">
+                        </div>
+
+                        <!-- Ticket Header -->
+                        <div class="flex flex-col sm:flex-row items-center justify-between border-b-2 border-[#0B1E36] pb-4 mb-6 relative z-10 gap-4">
+                            <div class="flex items-center space-x-3 text-center sm:text-left flex-col sm:flex-row">
+                                <div class="w-16 h-16 bg-white rounded-lg flex items-center justify-center p-1 border border-slate-200 shadow-sm overflow-hidden mb-2 sm:mb-0">
+                                    <img src="Screenshot_2024-11-15_231942-removebg-preview.png" alt="MHS Logo" class="w-full h-full object-contain">
                                 </div>
-                                <div>
-                                    <h4 class="academic-title font-bold text-lg text-[#0B1E36]">MHS LEARNINGS</h4>
-                                    <span class="text-xs uppercase font-extrabold tracking-widest text-[#D4AF37]" data-en="Board of Evaluation" data-ur="امتحانی بورڈ">Board of Evaluation</span>
+                                <div class="sm:pl-2">
+                                    <h4 class="academic-title font-black text-xl text-[#0B1E36] tracking-wide">MHS LEARNINGS</h4>
+                                    <span class="text-xs uppercase font-extrabold tracking-widest text-[#D4AF37]" data-en="National Standards Board of Evaluation" data-ur="قومی امتحانی تعلیمی بورڈ">National Standards Board of Evaluation</span>
                                 </div>
                             </div>
                             <div class="text-right">
-                                <span class="bg-[#0B1E36] text-white text-xs font-bold uppercase px-3 py-1 rounded" data-en="CONFIRMED ENTRY" data-ur="تصدیق شدہ داخلہ">CONFIRMED ENTRY</span>
+                                <span id="slip-fee-badge" class="bg-green-600 text-white text-xs font-bold uppercase px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1">
+                                    <i class="fa-solid fa-circle-check"></i> Fee Paid
+                                </span>
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 mb-8">
-                            <div class="border-b pb-2">
-                                <span class="text-xs font-bold text-slate-400 uppercase" data-en="Student Name" data-ur="طالب علم کا نام">Student Name</span>
-                                <p class="text-lg font-bold text-slate-800" id="card-name">Hassan Ali</p>
+                        <!-- Ticket Details Grid with QR side-by-side -->
+                        <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-6 relative z-10">
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 w-full order-2 md:order-1">
+                                <div class="border-b pb-1">
+                                    <span class="text-xs font-bold text-slate-400 uppercase" data-en="Student Name" data-ur="طالب علم کا نام">Student Name</span>
+                                    <p class="text-base font-bold text-slate-800" id="card-name">Hassan Ali</p>
+                                </div>
+                                <div class="border-b pb-1">
+                                    <span class="text-xs font-bold text-slate-400 uppercase" data-en="Father Name" data-ur="والد کا نام">Father Name</span>
+                                    <p class="text-base font-bold text-slate-800" id="card-father">Muhammad Rashid</p>
+                                </div>
+                                <div class="border-b pb-1">
+                                    <span class="text-xs font-bold text-slate-400 uppercase" data-en="Roll Number Slip" data-ur="رول نمبر">Roll Number Slip</span>
+                                    <p class="text-lg font-extrabold text-[#0B1E36]" id="card-roll">MHS-2026-948</p>
+                                </div>
+                                <div class="border-b pb-1">
+                                    <span class="text-xs font-bold text-slate-400 uppercase" data-en="Assigned Class" data-ur="کلاس">Assigned Class</span>
+                                    <p class="text-base font-bold text-slate-800" id="card-class">Class 8</p>
+                                </div>
                             </div>
-                            <div class="border-b pb-2">
-                                <span class="text-xs font-bold text-slate-400 uppercase" data-en="Father Name" data-ur="والد کا نام">Father Name</span>
-                                <p class="text-lg font-bold text-slate-800" id="card-father">Muhammad Rashid</p>
+
+                            <!-- ADVANCED DYNAMIC QR CODE BOX -->
+                            <div class="flex flex-col items-center justify-center p-3 bg-slate-50 border border-slate-200 rounded-xl shrink-0 order-1 md:order-2">
+                                <div id="qrcode" class="bg-white p-1.5 rounded border shadow-sm"></div>
+                                <span class="text-[10px] text-slate-400 font-bold tracking-wider mt-2 uppercase" data-en="Scan to Verify Status" data-ur="تصدیق کے لیے اسکین کریں">Scan to Verify Status</span>
                             </div>
-                            <div class="border-b pb-2">
-                                <span class="text-xs font-bold text-slate-400 uppercase" data-en="Roll Number Slip" data-ur="رول نمبر">Roll Number Slip</span>
-                                <p class="text-xl font-extrabold text-[#D4AF37]" id="card-roll">MHS-2026-948</p>
-                            </div>
-                            <div class="border-b pb-2">
-                                <span class="text-xs font-bold text-slate-400 uppercase" data-en="Assigned Class" data-ur="کلاس">Assigned Class</span>
-                                <p class="text-lg font-bold text-slate-800" id="card-class">Class 8</p>
-                            </div>
+
                         </div>
 
-                        <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 mb-6">
-                            <h5 class="text-xs font-bold text-slate-600 uppercase mb-2" data-en="Important Board Instructions:" data-ur="اہم امتحانی ہدایات:">Important Board Instructions:</h5>
+                        <!-- Warnings and Rules Box -->
+                        <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 mb-6 relative z-10">
+                            <h5 class="text-xs font-bold text-slate-700 uppercase mb-2 flex items-center gap-1">
+                                <i class="fa-solid fa-circle-exclamation text-amber-500"></i>
+                                <span data-en="Official Evaluation Guidelines:" data-ur="اہم امتحانی ہدایات:">Official Evaluation Guidelines:</span>
+                            </h5>
                             <ul class="list-disc list-inside text-xs text-slate-500 space-y-1">
                                 <li data-en="Bring physical printed ticket to evaluation hall." data-ur="فزیکل طور پر پرنٹ شدہ سلپ امتحانی مرکز ہمراہ لانا لازمی ہے۔">Bring physical printed ticket to evaluation hall.</li>
-                                <li data-en="Be seated 15 minutes before exam schedule." data-ur="پرچہ شروع ہونے سے پندسه منٹ قبل اپنی نشست پر بیٹھیں۔">Be seated 15 minutes before exam schedule.</li>
-                                <li data-en="Mobile phones are strictly not allowed inside." data-ur="موبائل فون لانے پر مکمل پابندی عائد ہے۔">Mobile phones are strictly not allowed inside.</li>
+                                <li data-en="QR Verification on entry is mandatory. Slips with unpaid fee status will be restricted." data-ur="داخلے کے وقت کیو آر کوڈ کی تصدیق لازمی ہے۔ فیس ادا نہ ہونے کی صورت میں داخلہ ممنوع ہے۔">QR Verification on entry is mandatory. Slips with unpaid fee status will be restricted.</li>
+                                <li data-en="Mobile phones, digital logs, or cheat sheets are strictly forbidden." data-ur="موبائل فون یا کسی قسم کا ڈیجیٹل مواد امتحانی ہال لانے پر مکمل پابندی ہے۔">Mobile phones, digital logs, or cheat sheets are strictly forbidden.</li>
                             </ul>
                         </div>
 
-                        <div class="flex justify-between items-center text-xs text-slate-400 pt-4 border-t">
-                            <span data-en="System Date: 2026-06-17" data-ur="سستم تاریخ: 2026-06-17">System Date: 2026-06-17</span>
+                        <!-- Footer Signatures Sign-Off -->
+                        <div class="flex justify-between items-center text-xs text-slate-400 pt-4 border-t relative z-10">
+                            <span data-en="System Date: 2026-06-17" data-ur="سسٹم تاریخ: 2026-06-17">System Date: 2026-06-17</span>
                             <div class="text-center">
-                                <span class="font-semibold text-slate-700 italic border-b border-slate-300 pb-1 px-4 block">MHS Board</span>
-                                <span class="text-[10px] uppercase mt-1 block" data-en="Authorized Signature" data-ur="مجاز دستخط">Authorized Signature</span>
+                                <span class="font-bold text-slate-700 italic border-b border-slate-300 pb-1 px-4 block">Muhammad Hamd Sultan</span>
+                                <span class="text-[10px] uppercase font-semibold mt-1 tracking-wider block" data-en="Academic Director Seal" data-ur="دستخط اکیڈمک ڈائریکٹر">Academic Director Seal</span>
                             </div>
                         </div>
+
                     </div>
                     
-                    <button onclick="window.print()" class="mt-4 w-full bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] font-bold py-3 rounded-lg shadow transition flex items-center justify-center space-x-2">
+                    <button onclick="window.print()" class="mt-4 w-full bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] font-bold py-3 rounded-lg shadow-md transition flex items-center justify-center space-x-2">
                         <i class="fa-solid fa-print"></i>
-                        <span data-en="Print / Download Slip" data-ur="رول نمبر سلپ پرنٹ کریں">Print / Download Slip</span>
+                        <span data-en="Print / Download Official Slip" data-ur="رول نمبر سلپ پرنٹ کریں">Print / Download Official Slip</span>
                     </button>
                 </div>
             </div>
@@ -406,16 +479,19 @@
                             <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Guardian Mobile Number" data-ur="سرپرست کا موبائل نمبر">Guardian Mobile Number</label>
                             <div class="relative">
                                 <span class="absolute left-3 top-2 text-slate-400 text-sm font-medium">+92</span>
-                                <input type="tel" placeholder="3001234567" required class="w-full border rounded-lg pl-12 pr-3 py-2 text-sm focus:ring focus:ring-slate-300">
+                                <input type="tel" placeholder="3338623633" required class="w-full border rounded-lg pl-12 pr-3 py-2 text-sm focus:ring focus:ring-slate-300">
                             </div>
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-slate-700 mb-1" data-en="Class Seeking Admission" data-ur="مطلوبہ کلاس برائے داخلہ">Class Seeking Admission</label>
                             <select class="w-full border rounded-lg px-3 py-2 text-sm focus:ring focus:ring-slate-300">
-                                <option data-en="Class 5" data-ur="کلاس 5">Class 5</option>
-                                <option data-en="Class 8" data-ur="کلاس 8">Class 8</option>
-                                <option data-en="Matric / O-Levels" data-ur="میٹرک / او لیول">Matric / O-Levels</option>
+                                <option>Class 5</option>
+                                <option>Class 6</option>
+                                <option>Class 7</option>
+                                <option>Class 8</option>
+                                <option>Class 9</option>
+                                <option>Class 10</option>
                             </select>
                         </div>
 
@@ -442,14 +518,14 @@
 
     </main>
 
-    <!-- PERSISTENT ACCREDITED FOOTER -->
+    <!-- PERSISTENT ACCREDITED FOOTER WITH FULL CONTACTS -->
     <footer class="bg-[#0B1E36] text-white border-t-4 border-[#D4AF37] py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6 text-center md:text-left">
                 
                 <div class="space-y-3">
                     <div class="flex items-center justify-center md:justify-start space-x-3">
-                        <div class="w-10 h-10 bg-white rounded-md flex items-center justify-center p-0.5 border border-[#D4AF37]">
+                        <div class="w-10 h-10 bg-white rounded-md flex items-center justify-center p-0.5 border border-[#D4AF37] overflow-hidden">
                             <img src="Screenshot_2024-11-15_231942-removebg-preview.png" alt="MHS Footer Logo" class="w-full h-full object-contain">
                         </div>
                         <span class="academic-title text-xl font-bold tracking-wider">MHS Learnings</span>
@@ -470,12 +546,16 @@
                 <div class="space-y-2">
                     <h4 class="text-[#D4AF37] font-bold text-sm tracking-wider uppercase" data-en="HELP DESK CONTACT" data-ur="معلومات و مدد">HELP DESK CONTACT</h4>
                     <p class="text-slate-400 text-sm flex items-center justify-center md:justify-start space-x-2">
-                        <i class="fa-solid fa-envelope text-[#D4AF37]"></i>
-                        <span>support@mhslearnings.com</span>
+                        <i class="fa-solid fa-envelope text-[#D4AF37] shrink-0"></i>
+                        <span>mhslearnings.medical@gmail.com</span>
                     </p>
                     <p class="text-slate-400 text-sm flex items-center justify-center md:justify-start space-x-2">
-                        <i class="fa-solid fa-phone text-[#D4AF37]"></i>
-                        <span>+92 300 1234567</span>
+                        <i class="fa-solid fa-phone text-[#D4AF37] shrink-0"></i>
+                        <span>+92 333 8623633</span>
+                    </p>
+                    <p class="text-slate-400 text-sm flex items-center justify-center md:justify-start space-x-2">
+                        <i class="fa-solid fa-mobile-button text-[#D4AF37] shrink-0"></i>
+                        <span>+92 312 4266828</span>
                     </p>
                 </div>
 
@@ -488,10 +568,23 @@
         </div>
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT SYSTEM FOR PAGINATION & LANGUAGES -->
+    <!-- INTERACTIVE JAVASCRIPT SYSTEM FOR PAGINATION, LANGUAGES & REAL QR CODE -->
     <script>
         let currentLanguage = 'en'; 
         let currentPage = 'home';
+        let qrCodeInstance = null;
+
+        // Initialize default QR Code on Page Load
+        window.addEventListener('DOMContentLoaded', () => {
+            qrCodeInstance = new QRCode(document.getElementById("qrcode"), {
+                text: "Student: Hassan Ali | Roll: MHS-2026-948 | Class: Class 8 | Status: Fee Paid",
+                width: 100,
+                height: 100,
+                colorDark : "#0B1E36",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
 
         function navigateTo(pageId) {
             const pages = document.querySelectorAll('.page-view');
@@ -551,25 +644,46 @@
             });
         }
 
+        // UPDATED METHOD FOR REAL-TIME PREVIEW + REAL QR GENERATION WITH FEE STATUS
         function updateAdmitCard() {
             const inputName = document.getElementById('admit-name').value.trim();
             const inputFather = document.getElementById('admit-father').value.trim();
             const inputRoll = document.getElementById('admit-roll').value.trim();
             const inputClass = document.getElementById('admit-class').value;
+            const inputFee = document.getElementById('admit-fee').value;
 
             if(!inputName || !inputFather || !inputRoll) {
-                alert(currentLanguage === 'en' ? "Please fill all form fields first!" : "برائے مہربانی پہلے تمام خانے پُر کریں!");
+                alert(currentLanguage === 'en' ? "Please fill all fields first!" : "برائے مہربانی پہلے تمام خانے پُر کریں!");
                 return;
             }
 
+            // Update Text Details
             document.getElementById('card-name').innerText = inputName;
             document.getElementById('card-father').innerText = inputFather;
             document.getElementById('card-roll').innerText = inputRoll;
             document.getElementById('card-class').innerText = inputClass;
 
+            // Handle Fee Badge Styling & UI dynamically
+            const badge = document.getElementById('slip-fee-badge');
+            if (inputFee === 'Paid') {
+                badge.className = "bg-green-600 text-white text-xs font-bold uppercase px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1";
+                badge.innerHTML = `<i class="fa-solid fa-circle-check"></i> Fee Paid`;
+            } else {
+                badge.className = "bg-red-600 text-white text-xs font-bold uppercase px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1";
+                badge.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Unpaid`;
+            }
+
+            // Regenerate the QR Code with complete dynamic content
+            const qrTextData = `Student: ${inputName} | Father: ${inputFather} | Roll No: ${inputRoll} | Class: ${inputClass} | Fee Status: ${inputFee}`;
+            if(qrCodeInstance) {
+                qrCodeInstance.clear();
+                qrCodeInstance.makeCode(qrTextData);
+            }
+
+            // Visual flash indicator
             const targetArea = document.getElementById('print-area');
             targetArea.style.borderColor = '#D4AF37';
-            setTimeout(() => { targetArea.style.borderColor = '#cbd5e1'; }, 1000);
+            setTimeout(() => { targetArea.style.borderColor = '#cbd5e1'; }, 800);
         }
 
         function handleRegistrationSubmit(event) {
