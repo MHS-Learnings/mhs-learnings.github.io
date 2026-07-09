@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MHS National Mathematics Olympiad 2026</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Academic & Modern Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <script>
@@ -36,11 +39,11 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background-color: #0c182b; /* Matching deep navy blue background */
+            background-color: #0c182b;
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 999999; /* Higher than sticky header (z-50) */
+            z-index: 999999;
             transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s;
         }
 
@@ -55,27 +58,27 @@
         .institutional-logo {
             width: auto;
             height: auto;
-            max-width: 480px;
-            max-height: 55vh;
+            max-width: 280px;
+            max-height: 50vh;
             object-fit: contain;
             opacity: 0;
             transform: scale(0.92);
             filter: drop-shadow(0px 10px 25px rgba(0, 0, 0, 0.6));
-            animation: logoReveal 1.8s forwards cubic-bezier(0.16, 1, 0.3, 1);
+            animation: logoReveal 1.2s forwards cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .light-sweep-bar {
             width: 0%;
             height: 3px;
-            background: linear-gradient(90deg, transparent, #00ebcc, #ffffff, #00ebcc, transparent);
+            background: linear-gradient(90deg, transparent, #F4B400, #ffffff, #F4B400, transparent);
             margin-top: 25px;
-            box-shadow: 0px 0px 15px #00ebcc;
-            animation: expandBar 2.2s 0.3s forwards cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0px 0px 15px #F4B400;
+            animation: expandBar 1.8s 0.2s forwards cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @keyframes logoReveal {
-            0% { opacity: 0; transform: scale(0.92); filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0)) blur(5px); }
-            100% { opacity: 1; transform: scale(1); filter: drop-shadow(0px 12px 30px rgba(0, 0, 0, 0.65)) blur(0px); }
+            0% { opacity: 0; transform: scale(0.92); filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0)); }
+            100% { opacity: 1; transform: scale(1); filter: drop-shadow(0px 12px 30px rgba(0, 0, 0, 0.65)); }
         }
 
         @keyframes expandBar {
@@ -112,19 +115,35 @@
 </head>
 <body class="bg-bgSlate font-sans text-[#1E293B] antialiased overflow-x-hidden math-pattern">
 
+    <!-- ================= SPLASH SCREEN INTERFACE ================= -->
     <div id="bise-splash-screen">
         <div class="splash-container">
-            <img src="https://img.sanishtech.com/u/cd2e6f3fc13bc98054dcdea8aeb0e589.png" alt="BISE MHS Logo" class="institutional-logo">
+            <!-- Yeh aapka BISE MHS waala image asset hai -->
+            <img src="https://img.sanishtech.com/u/cd2e6f3fc13bc98054dcdea8aeb0e589.png" alt="BISE MHS Logo" class="institutional-logo" id="splash-img">
+            
+            <!-- Backup Text text agar image load na ho sake -->
+            <div id="splash-backup-text" class="hidden flex flex-col items-center space-y-2">
+                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center border-2 border-olympiadGold shadow-xl">
+                    <span class="font-academic text-2xl font-black text-olympiadNavy">MHS</span>
+                </div>
+                <h1 class="font-academic text-4xl font-black text-white mt-2">BISE <span class="text-olympiadGold">MHS</span></h1>
+                <p class="text-xs font-bold text-slate-400 tracking-widest uppercase">National Mathematics Olympiad 2026</p>
+            </div>
+
             <div class="light-sweep-bar"></div>
         </div>
     </div>
+    <!-- =========================================================== -->
+
+    <!-- STICKY HEADER -->
     <header class="glass-nav sticky top-0 z-50 text-white shadow-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
+                <!-- LOGO AND BRANDING -->
                 <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                     <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center p-1 border border-olympiadGold/50 overflow-hidden shadow-inner">
-                        <img src="https://img.sanishtech.com/u/cd2e6f3fc13bc98054dcdea8aeb0e589.png" onerror="this.onerror=null; this.src='https://i.ibb.co/XZZYMnhw/logo.png';" alt="MHS Logo" class="w-full h-full object-contain">
+                        <img src="https://img.sanishtech.com/u/cd2e6f3fc13bc98054dcdea8aeb0e589.png" alt="MHS Logo" class="w-full h-full object-contain">
                     </div>
                     <div class="flex flex-col">
                         <span class="font-academic font-black text-lg tracking-wider leading-none text-white">MHS</span>
@@ -132,6 +151,7 @@
                     </div>
                 </div>
 
+                <!-- DESKTOP NAVIGATION -->
                 <nav class="hidden md:flex space-x-6 lg:space-x-8 text-sm font-semibold tracking-wide">
                     <a href="#home" class="text-olympiadGold transition">Home</a>
                     <a href="#about" class="text-slate-200 hover:text-olympiadGold transition">About Olympiad</a>
@@ -141,6 +161,7 @@
                     <a href="#contact" class="text-slate-200 hover:text-olympiadGold transition">Contact</a>
                 </nav>
 
+                <!-- REGISTER DIRECT NAVIGATION BUTTON -->
                 <div class="hidden md:flex">
                     <a href="https://forms.gle/VCcAZMg7tweKcwK46" target="_blank" class="bg-olympiadGold hover:bg-goldHover text-olympiadNavy font-bold px-6 py-2.5 rounded-lg text-sm shadow-md transition-all duration-200 transform hover:scale-[1.02] flex items-center space-x-2">
                         <i class="fa-solid fa-pen-to-square"></i>
@@ -148,12 +169,14 @@
                     </a>
                 </div>
 
+                <!-- MOBILE BURGER MENU BUTTON -->
                 <button onclick="toggleMobileMenu()" class="md:hidden text-white focus:outline-none">
                     <i id="menu-icon" class="fa-solid fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
 
+        <!-- MOBILE MENU OVERLAY -->
         <div id="mobile-menu" class="hidden md:hidden bg-olympiadNavy border-t border-white/10 px-6 py-4 space-y-3 shadow-inner">
             <a href="#home" onclick="toggleMobileMenu()" class="block text-olympiadGold py-2 font-medium border-b border-white/5">Home</a>
             <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-200 py-2 font-medium border-b border-white/5">About Olympiad</a>
@@ -167,6 +190,7 @@
         </div>
     </header>
 
+    <!-- HERO SECTION WITH INTEGRATED DATES & LIVE COUNTDOWN TIMER -->
     <section id="home" class="custom-gradient text-white py-16 lg:py-24 relative overflow-hidden">
         <div class="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
             <i class="fa-solid fa-square-root-variable text-[40rem]"></i>
@@ -175,6 +199,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
+                <!-- Main Header Text Grid -->
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                     <div class="inline-flex items-center space-x-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-xs font-bold text-olympiadGold tracking-wide uppercase">
                         <i class="fa-solid fa-award"></i>
@@ -188,6 +213,7 @@
                         Pakistan's premier nationwide online mathematics competition. Designed to challenge analytical skills, logical aptitude, and reward brilliant minds.
                     </p>
 
+                    <!-- Core Timeline Metrics Grid -->
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 text-left">
                         <div class="bg-white/5 border border-white/10 rounded-xl p-3">
                             <span class="block text-[10px] uppercase text-slate-400 font-bold tracking-wider">Registration Opens</span>
@@ -215,6 +241,7 @@
                     </div>
                 </div>
 
+                <!-- COUNTDOWN TIMER CONTAINER -->
                 <div class="lg:col-span-5 w-full max-w-md mx-auto">
                     <div class="bg-white/10 border border-white/20 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl text-center">
                         <h3 class="text-xs font-bold tracking-widest text-olympiadGold uppercase mb-4">Olympiad Countdown</h3>
@@ -249,6 +276,7 @@
         </div>
     </section>
 
+    <!-- SECTION 2: WHY PARTICIPATE -->
     <section id="about" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-xl mx-auto mb-12">
             <h2 class="font-academic text-2xl sm:text-3xl font-extrabold text-olympiadNavy">Why Participate?</h2>
@@ -295,6 +323,7 @@
         </div>
     </section>
 
+    <!-- SECTION 3: OLYMPIAD DETAILS -->
     <section id="details" class="bg-olympiadNavy text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-xl mx-auto mb-12">
@@ -350,6 +379,7 @@
         </div>
     </section>
 
+    <!-- SECTION 4: PRIZES & AWARDS -->
     <section id="prizes" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-xl mx-auto mb-12">
             <h2 class="font-academic text-2xl sm:text-3xl font-extrabold text-olympiadNavy">Exciting Cash Awards</h2>
@@ -358,6 +388,7 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end mb-8">
+            <!-- 2nd Place -->
             <div class="bg-white border-2 border-slate-200 p-6 rounded-2xl shadow-sm text-center order-2 md:order-1 transform md:scale-95 transition-all">
                 <span class="text-4xl block mb-2">🥈</span>
                 <h3 class="font-bold text-lg text-olympiadNavy">2nd Position</h3>
@@ -365,6 +396,7 @@
                 <p class="text-xs text-slate-400">Cash Reward + Silver Merit Certificate</p>
             </div>
 
+            <!-- 1st Place -->
             <div class="bg-white border-4 border-olympiadGold p-8 rounded-2xl shadow-lg text-center order-1 md:order-2 relative transform md:-translate-y-4 transition-all">
                 <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-olympiadGold text-olympiadNavy font-black px-4 py-1 rounded-full text-xs tracking-wider uppercase shadow">WINNER</div>
                 <span class="text-5xl block mb-2">🥇</span>
@@ -373,6 +405,7 @@
                 <p class="text-xs text-slate-400">Grand Cash Reward + Gold Medal Certificate</p>
             </div>
 
+            <!-- 3rd Place -->
             <div class="bg-white border-2 border-slate-200 p-6 rounded-2xl shadow-sm text-center order-3 transform md:scale-95 transition-all">
                 <span class="text-4xl block mb-2">🥉</span>
                 <h3 class="font-bold text-lg text-amber-700 my-2">3rd Position</h3>
@@ -399,6 +432,7 @@
         </div>
     </section>
 
+    <!-- SECTION 5: TEACHER AMBASSADOR PROGRAM -->
     <section class="bg-gradient-to-br from-slate-900 to-[#0B1F4D] text-white py-14 border-t-4 border-olympiadGold">
         <div class="max-w-4xl mx-auto px-4 text-center space-y-4">
             <div class="w-12 h-12 bg-olympiadGold/10 border border-olympiadGold text-olympiadGold text-xl rounded-full flex items-center justify-center mx-auto shadow-inner">
@@ -417,6 +451,7 @@
         </div>
     </section>
 
+    <!-- SECTION 6: SYLLABUS -->
     <section id="syllabus" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-xl mx-auto mb-12">
             <h2 class="font-academic text-2xl sm:text-3xl font-extrabold text-olympiadNavy">Olympiad Syllabus</h2>
@@ -437,45 +472,36 @@
                 <div>
                     <span class="block text-[10px] font-bold text-olympiadGold uppercase tracking-wider">PCTB Curriculum</span>
                     <h4 class="font-bold text-base text-olympiadNavy mt-0.5">Class 6 Mathematics</h4>
-                    <span class="text-xs text-slate-400 block mt-1"><i class="fa-solid fa-book-open mr-1"></i>Complete PCTB Textbook</span>
-                </div>
-                <div class="text-slate-300 text-3xl"><i class="fa-solid fa-shapes"></i></div>
+                    <span class="text-xs text-slate-400 block mt-1"><i class="fa-solid fa-shapes"></i></div>
             </div>
             <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm flex items-center justify-between">
                 <div>
                     <span class="block text-[10px] font-bold text-olympiadGold uppercase tracking-wider">PCTB Curriculum</span>
                     <h4 class="font-bold text-base text-olympiadNavy mt-0.5">Class 7 Mathematics</h4>
-                    <span class="text-xs text-slate-400 block mt-1"><i class="fa-solid fa-book-open mr-1"></i>Complete PCTB Textbook</span>
-                </div>
-                <div class="text-slate-300 text-3xl"><i class="fa-solid fa-chart-pie"></i></div>
+                    <span class="text-xs text-slate-400 block mt-1"><i class="fa-solid fa-chart-pie"></i></div>
             </div>
             <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm flex items-center justify-between">
                 <div>
                     <span class="block text-[10px] font-bold text-olympiadGold uppercase tracking-wider">PCTB Curriculum</span>
                     <h4 class="font-bold text-base text-olympiadNavy mt-0.5">Class 8 Mathematics</h4>
-                    <span class="text-xs text-slate-400 block mt-1"><i class="fa-solid fa-divide mr-1"></i>Complete PCTB Textbook</span>
-                </div>
-                <div class="text-slate-300 text-3xl"><i class="fa-solid fa-divide"></i></div>
+                    <span class="text-xs text-slate-400 block mt-1"><i class="fa-solid fa-divide mr-1"></i></div>
             </div>
             <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm flex items-center justify-between">
                 <div>
                     <span class="block text-[10px] font-bold text-olympiadGold uppercase tracking-wider">PCTB Curriculum</span>
                     <h4 class="font-bold text-base text-olympiadNavy mt-0.5">Class 9 Mathematics</h4>
-                    <span class="text-xs text-slate-400 block mt-1"><i class="fa-solid fa-book-open mr-1"></i>Complete PCTB Textbook</span>
-                </div>
-                <div class="text-slate-300 text-3xl"><i class="fa-solid fa-superscript"></i></div>
+                    <span class="text-xs text-slate-400 block mt-1"><i class="fa-solid fa-book-open mr-1"></i></div>
             </div>
             <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm flex items-center justify-between">
                 <div>
                     <span class="block text-[10px] font-bold text-olympiadGold uppercase tracking-wider">PCTB Curriculum</span>
                     <h4 class="font-bold text-base text-olympiadNavy mt-0.5">Class 10 Mathematics</h4>
-                    <span class="text-xs text-slate-400 block mt-1"><i class="fa-solid fa-book-open mr-1"></i>Complete PCTB Textbook</span>
-                </div>
-                <div class="text-slate-300 text-3xl"><i class="fa-solid fa-percentage"></i></div>
+                    <span class="text-xs text-slate-400 block mt-1"><i class="fa-solid fa-book-open mr-1"></i></div>
             </div>
         </div>
     </section>
 
+    <!-- INTEGRATED ACCORDION FAQ SECTION -->
     <section class="bg-slate-100 py-16">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
@@ -490,7 +516,7 @@
                         <i id="faq-chevron-1" class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform" style="transition: transform 0.3s;"></i>
                     </button>
                     <div id="faq-ans-1" class="hidden px-5 py-4 text-xs text-slate-500 border-t leading-relaxed">
-                        Registered students will receive their unique dynamic online link over WhatsApp and Email exactly 24 hours prior to the test date on August 02, 2026.
+                        Registered students will receive their unique online link over WhatsApp and Email exactly 24 hours prior to the test date on August 02, 2026.
                     </div>
                 </div>
 
@@ -503,20 +529,11 @@
                         Absolutely not. There is no negative marking! Feel free to attempt all 60 MCQs confidently to achieve maximum grades within 75 minutes.
                     </div>
                 </div>
-
-                <div class="bg-white border rounded-xl overflow-hidden shadow-sm">
-                    <button onclick="toggleFaq(3)" class="w-full text-left px-5 py-4 font-bold text-sm text-olympiadNavy flex justify-between items-center bg-slate-50/50">
-                        <span>Can students of classes other than 5–10 participate?</span>
-                        <i id="faq-chevron-3" class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform" style="transition: transform 0.3s;"></i>
-                    </button>
-                    <div id="faq-ans-3" class="hidden px-5 py-4 text-xs text-slate-500 border-t leading-relaxed">
-                        Currently, the MHS National Mathematics Olympiad 2026 is exclusively open for school students currently enrolled in Classes 5 to 10.
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
+    <!-- SECTION 7: REGISTRATION CALL TO ACTION -->
     <section class="py-16 bg-gradient-to-r from-[#0B1F4D] to-[#1E3A8A] text-white text-center relative border-b-8 border-olympiadGold">
         <div class="max-w-3xl mx-auto px-4 space-y-6 relative z-10">
             <h2 class="font-academic text-2xl sm:text-4xl font-black tracking-wide">Secure Your Olympiad Spot</h2>
@@ -532,6 +549,7 @@
         </div>
     </section>
 
+    <!-- SECTION 8: CONTACT INFORMATION -->
     <section id="contact" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
@@ -552,6 +570,7 @@
         </div>
     </section>
 
+    <!-- PERSISTENT FOOTER -->
     <footer class="bg-olympiadNavy text-white py-8 border-t border-white/10 text-center">
         <div class="max-w-7xl mx-auto px-4 text-xs space-y-2 text-slate-400">
             <p class="font-bold text-slate-200 tracking-wide text-sm font-academic">MHS National Mathematics Olympiad 2026</p>
@@ -559,19 +578,28 @@
         </div>
     </footer>
 
-
+    <!-- ================= JAVASCRIPT ENGINE ================= -->
     <script>
-        // Splash screen control execution block (Runs safely on DOM load)
+        // Check if splash image loads correctly, otherwise show elegant dynamic text
+        const splashImg = document.getElementById('splash-img');
+        if(splashImg) {
+            splashImg.onerror = function () {
+                this.style.display = 'none';
+                document.getElementById('splash-backup-text').classList.remove('hidden');
+            };
+        }
+
+        // Auto Close Splash Screen after 3 seconds
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const splash = document.getElementById('bise-splash-screen');
                 if (splash) {
                     splash.classList.add('fade-splash-out');
                 }
-            }, 3000); // Fades out clean after exactly 3.0 seconds
+            }, 3000); 
         });
 
-        // MOBILE HAMBURGER MENU SWITCHER
+        // MOBILE HAMBURGER MENU
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('menu-icon');
@@ -583,7 +611,7 @@
             }
         }
 
-        // ACCORDION FAQ SWITCHER
+        // FAQ SWITCHER
         function toggleFaq(id) {
             const answer = document.getElementById(`faq-ans-${id}`);
             const chevron = document.getElementById(`faq-chevron-${id}`);
@@ -595,7 +623,7 @@
             }
         }
 
-        // LIVE COUNTDOWN TIMER ENGINE (Target: 02 August 2026)
+        // COUNTDOWN TIMER (Target: 02 August 2026)
         function initOlympiadCountdown() {
             const targetDate = new Date("August 2, 2026 09:00:00").getTime();
 
@@ -617,7 +645,6 @@
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                // Update DOM elements dynamically with padding
                 document.getElementById("days").innerText = String(days).padStart(2, '0');
                 document.getElementById("hours").innerText = String(hours).padStart(2, '0');
                 document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
@@ -625,7 +652,6 @@
             }, 1000);
         }
 
-        // Initialize countdown on window load safely
         window.onload = function() {
             initOlympiadCountdown();
         }
