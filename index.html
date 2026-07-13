@@ -1,660 +1,244 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MHS National Mathematics Olympiad 2026</title>
-    <!-- Tailwind CSS CDN -->
+    <title>MHS Learnings - Official Academic Portal</title>
+    <!-- Tailwind CSS CDN for modern grid & utility styles -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Academic & Modern Fonts -->
+    <!-- Google Fonts for elite academic look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Inter:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for professional icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- QRCodeJS Library for generating genuine student QR codes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        olympiadNavy: '#0B1F4D',
-                        olympiadGold: '#F4B400',
-                        goldHover: '#DDA200',
-                        bgSlate: '#F8FAFC'
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        academic: ['Cinzel', 'serif']
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        /* --- PREMIUM INSTITUTIONAL SPLASH SCREEN STYLES --- */
-        #bise-splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: #0c182b;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 999999;
-            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s;
+        :root {
+            --primary-navy: #0B1E36;
+            --primary-gold: #D4AF37;
+            --gold-hover: #AA820A;
+            --bg-light: #F7F9FC;
         }
 
-        .splash-container {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 90%;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: #1e293b;
+            transition: all 0.3s ease;
         }
 
-        .institutional-logo {
-            width: auto;
-            height: auto;
-            max-width: 280px;
-            max-height: 50vh;
-            object-fit: contain;
-            opacity: 0;
-            transform: scale(0.92);
-            filter: drop-shadow(0px 10px 25px rgba(0, 0, 0, 0.6));
-            animation: logoReveal 1.2s forwards cubic-bezier(0.16, 1, 0.3, 1);
+        .academic-bg {
+            background-image: radial-gradient(rgba(11, 30, 54, 0.03) 1px, transparent 0), radial-gradient(rgba(11, 30, 54, 0.03) 1px, transparent 0);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
         }
 
-        .light-sweep-bar {
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #F4B400, #ffffff, #F4B400, transparent);
-            margin-top: 25px;
-            box-shadow: 0px 0px 15px #F4B400;
-            animation: expandBar 1.8s 0.2s forwards cubic-bezier(0.16, 1, 0.3, 1);
+        .academic-title {
+            font-family: 'Cinzel', serif;
         }
 
-        @keyframes logoReveal {
-            0% { opacity: 0; transform: scale(0.92); filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0)); }
-            100% { opacity: 1; transform: scale(1); filter: drop-shadow(0px 12px 30px rgba(0, 0, 0, 0.65)); }
+        .lang-ur {
+            font-family: 'Noto Nastaliq Urdu', 'Inter', sans-serif;
+            direction: rtl;
         }
 
-        @keyframes expandBar {
-            0% { width: 0%; }
-            100% { width: 85%; }
+        .page-view {
+            display: none;
+        }
+        .page-view.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out forwards;
         }
 
-        .fade-splash-out {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- ORIGINAL CUSTOM WEBSITE STYLES --- */
-        .custom-gradient {
-            background: linear-gradient(135deg, #0B1F4D 0%, #15347A 100%);
-        }
-        .glass-nav {
-            background: rgba(11, 31, 77, 0.95);
-            backdrop-filter: blur(12px);
-        }
-        .feature-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .feature-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 30px -10px rgba(11, 31, 77, 0.2);
-        }
-        .math-pattern {
-            background-image: radial-gradient(rgba(244, 180, 0, 0.1) 1.5px, transparent 1.5px);
-            background-size: 32px 32px;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
         }
     </style>
 </head>
-<body class="bg-bgSlate font-sans text-[#1E293B] antialiased overflow-x-hidden math-pattern">
+<body class="academic-bg min-height-screen flex flex-col justify-between">
 
-    <!-- ================= SPLASH SCREEN INTERFACE ================= -->
-    <div id="bise-splash-screen">
-        <div class="splash-container">
-            <!-- Yeh aapka BISE MHS waala image asset hai -->
-            <img src="https://img.sanishtech.com/u/cd2e6f3fc13bc98054dcdea8aeb0e589.png" alt="BISE MHS Logo" class="institutional-logo" id="splash-img">
-            
-            <!-- Backup Text text agar image load na ho sake -->
-            <div id="splash-backup-text" class="hidden flex flex-col items-center space-y-2">
-                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center border-2 border-olympiadGold shadow-xl">
-                    <span class="font-academic text-2xl font-black text-olympiadNavy">MHS</span>
-                </div>
-                <h1 class="font-academic text-4xl font-black text-white mt-2">BISE <span class="text-olympiadGold">MHS</span></h1>
-                <p class="text-xs font-bold text-slate-400 tracking-widest uppercase">National Mathematics Olympiad 2026</p>
-            </div>
-
-            <div class="light-sweep-bar"></div>
-        </div>
-    </div>
-    <!-- =========================================================== -->
-
-    <!-- STICKY HEADER -->
-    <header class="glass-nav sticky top-0 z-50 text-white shadow-md border-b border-white/10">
+    <!-- PERSISTENT TOP HEADER -->
+    <header class="glass-card sticky top-0 z-50 shadow-sm border-b">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
-                <!-- LOGO AND BRANDING -->
-                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                    <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center p-1 border border-olympiadGold/50 overflow-hidden shadow-inner">
-                        <img src="https://img.sanishtech.com/u/cd2e6f3fc13bc98054dcdea8aeb0e589.png" alt="MHS Logo" class="w-full h-full object-contain">
+                <!-- DYNAMIC LOGO AREA -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateTo('home')">
+                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center p-1 border border-slate-200 shadow-sm overflow-hidden">
+                        <!-- Dual Fallback: Tries ImgBB direct link first, then falls back to local file uploaded in GitHub -->
+                        <img src="https://i.ibb.co/XZZYMnhw/logo.png" onerror="this.onerror=null; this.src='Screenshot_2024-11-15_231942-removebg-preview.png';" alt="MHS Logo" class="w-full h-full object-contain block">
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-academic font-black text-lg tracking-wider leading-none text-white">MHS</span>
-                        <span class="font-academic text-[10px] font-bold tracking-widest text-olympiadGold uppercase">Olympiads</span>
+                        <span class="academic-title text-[#0B1E36] font-extrabold text-xl tracking-wider leading-none">MHS</span>
+                        <span class="academic-title text-[#D4AF37] text-xs font-bold tracking-widest uppercase">Learnings</span>
                     </div>
                 </div>
 
-                <!-- DESKTOP NAVIGATION -->
-                <nav class="hidden md:flex space-x-6 lg:space-x-8 text-sm font-semibold tracking-wide">
-                    <a href="#home" class="text-olympiadGold transition">Home</a>
-                    <a href="#about" class="text-slate-200 hover:text-olympiadGold transition">About Olympiad</a>
-                    <a href="#details" class="text-slate-200 hover:text-olympiadGold transition">Details</a>
-                    <a href="#prizes" class="text-slate-200 hover:text-olympiadGold transition">Prizes</a>
-                    <a href="#syllabus" class="text-slate-200 hover:text-olympiadGold transition">Syllabus</a>
-                    <a href="#contact" class="text-slate-200 hover:text-olympiadGold transition">Contact</a>
+                <!-- NAVIGATION BAR (For PC View) -->
+                <nav class="hidden md:flex space-x-1 lg:space-x-4">
+                    <button onclick="navigateTo('home')" id="nav-home" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-[#0B1E36] bg-slate-100 transition" data-en="Home" data-ur="ہوم">Home</button>
+                    <button onclick="navigateTo('syllabus')" id="nav-syllabus" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-600 hover:bg-slate-100 transition" data-en="Syllabus" data-ur="نصاب">Syllabus</button>
+                    <button onclick="navigateTo('papers')" id="nav-papers" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-600 hover:bg-slate-100 transition" data-en="Sample Papers" data-ur="نمونہ پرچے">Sample Papers</button>
+                    <button onclick="navigateTo('admit')" id="nav-admit" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-600 hover:bg-slate-100 transition" data-en="Admit Card" data-ur="ایڈمٹ کارڈ">Admit Card</button>
+                    <button onclick="navigateTo('register')" id="nav-register" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-600 hover:bg-slate-100 transition" data-en="Registration" data-ur="رجسٹریشن">Registration</button>
                 </nav>
 
-                <!-- REGISTER DIRECT NAVIGATION BUTTON -->
-                <div class="hidden md:flex">
-                    <a href="https://forms.gle/VCcAZMg7tweKcwK46" target="_blank" class="bg-olympiadGold hover:bg-goldHover text-olympiadNavy font-bold px-6 py-2.5 rounded-lg text-sm shadow-md transition-all duration-200 transform hover:scale-[1.02] flex items-center space-x-2">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        <span>Register Now</span>
-                    </a>
+                <!-- DUAL-LANGUAGE TOGGLE BUTTON -->
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleLanguage()" class="bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] font-semibold py-2 px-4 rounded-full border border-[#D4AF37] text-sm shadow transition flex items-center space-x-2">
+                        <i class="fa-solid fa-language text-lg"></i>
+                        <span id="lang-btn-text">اردو</span>
+                    </button>
+                    
+                    <!-- Mobile Menu Trigger -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-[#0B1E36] focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
                 </div>
 
-                <!-- MOBILE BURGER MENU BUTTON -->
-                <button onclick="toggleMobileMenu()" class="md:hidden text-white focus:outline-none">
-                    <i id="menu-icon" class="fa-solid fa-bars text-2xl"></i>
-                </button>
             </div>
         </div>
 
         <!-- MOBILE MENU OVERLAY -->
-        <div id="mobile-menu" class="hidden md:hidden bg-olympiadNavy border-t border-white/10 px-6 py-4 space-y-3 shadow-inner">
-            <a href="#home" onclick="toggleMobileMenu()" class="block text-olympiadGold py-2 font-medium border-b border-white/5">Home</a>
-            <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-200 py-2 font-medium border-b border-white/5">About Olympiad</a>
-            <a href="#details" onclick="toggleMobileMenu()" class="block text-slate-200 py-2 font-medium border-b border-white/5">Details</a>
-            <a href="#prizes" onclick="toggleMobileMenu()" class="block text-slate-200 py-2 font-medium border-b border-white/5">Prizes</a>
-            <a href="#syllabus" onclick="toggleMobileMenu()" class="block text-slate-200 py-2 font-medium border-b border-white/5">Syllabus</a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="block text-slate-200 py-2 font-medium border-b border-white/5">Contact</a>
-            <a href="https://forms.gle/VCcAZMg7tweKcwK46" target="_blank" class="block text-center bg-olympiadGold text-olympiadNavy font-bold py-2.5 rounded-lg text-sm shadow mt-4">
-                Register Now
-            </a>
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0B1E36] text-white border-t border-[#D4AF37] py-4 px-6 space-y-3">
+            <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium border-b border-slate-700" data-en="Home" data-ur="ہوم">Home</button>
+            <button onclick="navigateTo('syllabus'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium border-b border-slate-700" data-en="Syllabus" data-ur="نصاب">Syllabus</button>
+            <button onclick="navigateTo('papers'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium border-b border-slate-700" data-en="Sample Papers" data-ur="نمونہ پرچے">Sample Papers</button>
+            <button onclick="navigateTo('admit'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium border-b border-slate-700" data-en="Admit Card" data-ur="ایڈمٹ کارڈ">Admit Card</button>
+            <button onclick="navigateTo('register'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium" data-en="Registration" data-ur="رجسٹریشن">Registration</button>
         </div>
     </header>
 
-    <!-- HERO SECTION WITH INTEGRATED DATES & LIVE COUNTDOWN TIMER -->
-    <section id="home" class="custom-gradient text-white py-16 lg:py-24 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
-            <i class="fa-solid fa-square-root-variable text-[40rem]"></i>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <!-- Main Header Text Grid -->
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center space-x-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-xs font-bold text-olympiadGold tracking-wide uppercase">
-                        <i class="fa-solid fa-award"></i>
-                        <span>MHS-Learnings Initiative</span>
-                    </div>
-                    <h1 class="font-academic text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-                        MHS National <br>
-                        <span class="text-olympiadGold">Mathematics Olympiad</span> 2026
-                    </h1>
-                    <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
-                        Pakistan's premier nationwide online mathematics competition. Designed to challenge analytical skills, logical aptitude, and reward brilliant minds.
-                    </p>
-
-                    <!-- Core Timeline Metrics Grid -->
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 text-left">
-                        <div class="bg-white/5 border border-white/10 rounded-xl p-3">
-                            <span class="block text-[10px] uppercase text-slate-400 font-bold tracking-wider">Registration Opens</span>
-                            <span class="text-sm font-bold text-white">10 June 2026</span>
-                        </div>
-                        <div class="bg-white/5 border border-white/10 rounded-xl p-3 border-l-2 border-l-red-400">
-                            <span class="block text-[10px] uppercase text-slate-400 font-bold tracking-wider">Deadline</span>
-                            <span class="text-sm font-bold text-white">25 July 2026</span>
-                        </div>
-                        <div class="bg-white/5 border border-white/10 rounded-xl p-3 border-l-2 border-l-olympiadGold">
-                            <span class="block text-[10px] uppercase text-slate-400 font-bold tracking-wider">Test Date</span>
-                            <span class="text-sm font-bold text-white">02 August 2026</span>
-                        </div>
-                        <div class="bg-white/5 border border-white/10 rounded-xl p-3">
-                            <span class="block text-[10px] uppercase text-slate-400 font-bold tracking-wider">Result Date</span>
-                            <span class="text-sm font-bold text-white">10 August 2026</span>
-                        </div>
-                    </div>
-
-                    <div class="pt-6">
-                        <a href="https://forms.gle/VCcAZMg7tweKcwK46" target="_blank" class="inline-flex items-center space-x-3 bg-olympiadGold hover:bg-goldHover text-olympiadNavy font-extrabold text-base px-8 py-4 rounded-xl shadow-xl transition-all duration-200 transform hover:scale-[1.03] group">
-                            <span>REGISTER NOW</span>
-                            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- COUNTDOWN TIMER CONTAINER -->
-                <div class="lg:col-span-5 w-full max-w-md mx-auto">
-                    <div class="bg-white/10 border border-white/20 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl text-center">
-                        <h3 class="text-xs font-bold tracking-widest text-olympiadGold uppercase mb-4">Olympiad Countdown</h3>
-                        
-                        <div class="grid grid-cols-4 gap-2 sm:gap-3 mb-6">
-                            <div class="bg-olympiadNavy/80 rounded-xl p-3 border border-white/10">
-                                <span id="days" class="block text-2xl sm:text-3xl font-black text-white">00</span>
-                                <span class="text-[9px] uppercase tracking-wider text-slate-400 font-bold">Days</span>
-                            </div>
-                            <div class="bg-olympiadNavy/80 rounded-xl p-3 border border-white/10">
-                                <span id="hours" class="block text-2xl sm:text-3xl font-black text-white">00</span>
-                                <span class="text-[9px] uppercase tracking-wider text-slate-400 font-bold">Hours</span>
-                            </div>
-                            <div class="bg-olympiadNavy/80 rounded-xl p-3 border border-white/10">
-                                <span id="minutes" class="block text-2xl sm:text-3xl font-black text-white">00</span>
-                                <span class="text-[9px] uppercase tracking-wider text-slate-400 font-bold">Mins</span>
-                            </div>
-                            <div class="bg-olympiadNavy/80 rounded-xl p-3 border border-white/10">
-                                <span id="seconds" class="block text-2xl sm:text-3xl font-black text-olympiadGold animate-pulse">00</span>
-                                <span class="text-[9px] uppercase tracking-wider text-slate-400 font-bold">Secs</span>
-                            </div>
-                        </div>
-
-                        <div class="text-xs text-slate-300 flex items-center justify-center space-x-2 border-t border-white/10 pt-4">
-                            <i class="fa-solid fa-clock-rotate-left text-olympiadGold"></i>
-                            <span>Time left before the evaluation starts.</span>
-                        </div>
-                    </div>
-                </div>
-
+    <!-- LIVE NEWS BULLETIN -->
+    <div class="bg-[#D4AF37] text-[#0B1E36] py-2 overflow-hidden shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 flex items-center">
+            <span class="bg-[#0B1E36] text-white text-xs font-bold uppercase px-2 py-1 rounded mr-3 flex items-center space-x-1 shrink-0">
+                <i class="fa-solid fa-bullhorn"></i>
+                <span data-en="LATEST" data-ur="تازہ ترین">LATEST</span>
+            </span>
+            <div class="text-sm font-semibold whitespace-nowrap overflow-hidden" id="news-text" data-en="Admissions for Academic Session 2026 are now open! Download syllabus and model papers from their respective sections." data-ur="تعلیمی سیشن 2026 کے لیے داخلے کھلے ہیں! متعلقہ سیکشنز سے نصاب اور ماڈل پیپرز ڈاؤن لوڈ کریں۔">
+                Admissions for Academic Session 2026 are now open! Download syllabus and model papers from their respective sections.
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- SECTION 2: WHY PARTICIPATE -->
-    <section id="about" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-xl mx-auto mb-12">
-            <h2 class="font-academic text-2xl sm:text-3xl font-extrabold text-olympiadNavy">Why Participate?</h2>
-            <div class="w-16 h-1 bg-olympiadGold mx-auto mt-2 rounded"></div>
-            <p class="text-sm text-slate-500 mt-2">Compete with the finest minds and earn recognition across the country.</p>
-        </div>
+    <!-- MAIN INTERACTIVE PORTAL AREAS -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm feature-card text-center">
-                <div class="w-12 h-12 bg-amber-50 rounded-xl text-olympiadGold flex items-center justify-center text-xl mx-auto mb-4">
-                    <i class="fa-solid fa-globe"></i>
+        <!-- ================= PAGE 1: HOME ================= -->
+        <section id="page-home" class="page-view active">
+            <div class="rounded-2xl overflow-hidden bg-gradient-to-r from-[#0B1E36] to-[#153459] text-white p-8 md:p-12 mb-8 relative shadow-lg border-b-4 border-[#D4AF37]">
+                <div class="relative z-10 max-w-2xl">
+                    <span class="text-[#D4AF37] font-bold text-sm tracking-widest uppercase" data-en="Empowering Minds, Shaping Futures" data-ur="ذہنوں کی آبیاری، مستقبل کی تیاری">Empowering Minds, Shaping Futures</span>
+                    <h1 class="academic-title text-3xl md:text-5xl font-black mt-2 mb-4 leading-tight" data-en="MHS Learnings Academic Portal" data-ur="ایم ایچ ایس لرننگز تعلیمی پورٹل">MHS Learnings Academic Portal</h1>
+                    <p class="text-slate-300 text-lg mb-6 leading-relaxed" data-en="Access model papers, comprehensive syllabus, and registration systems for the upcoming session's nationwide standards evaluation." data-ur="آنے والے سیشن کے ملک گیر معیاری ٹیسٹ کے لیے نمونہ پرچہ جات، تفصیلی نصاب اور رجسٹریشن کے نظام تک رسائی حاصل کریں۔">Access model papers, comprehensive syllabus, and registration systems for the upcoming session's nationwide standards evaluation.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="navigateTo('register')" class="bg-[#D4AF37] hover:bg-[#AA820A] text-[#0B1E36] font-bold px-6 py-3 rounded-lg shadow-lg transition" data-en="Apply Now" data-ur="ابھی اپلائی کریں">Apply Now</button>
+                        <button onclick="navigateTo('syllabus')" class="bg-transparent border border-white hover:bg-white hover:text-[#0B1E36] text-white font-bold px-6 py-3 rounded-lg transition" data-en="View Syllabus" data-ur="نصاب دیکھیں">View Syllabus</button>
+                    </div>
                 </div>
-                <h4 class="font-bold text-sm text-olympiadNavy">National Level</h4>
-                <p class="text-xs text-slate-500 mt-2 leading-relaxed">Pakistan-wide competitive assessment to showcase your raw mathematical skill.</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm feature-card text-center">
-                <div class="w-12 h-12 bg-blue-50 text-blue-600 flex items-center justify-center text-xl mx-auto mb-4">
-                    <i class="fa-solid fa-layer-group"></i>
+                <div class="absolute right-6 bottom-6 opacity-10 text-9xl hidden md:block w-48 h-48">
+                    <!-- Dynamic Watermark Fallback -->
+                    <img src="https://i.ibb.co/XZZYMnhw/logo.png" onerror="this.onerror=null; this.src='Screenshot_2024-11-15_231942-removebg-preview.png';" alt="Watermark" class="w-full h-full object-contain filter brightness-0 invert">
                 </div>
-                <h4 class="font-bold text-sm text-olympiadNavy">Separate Papers</h4>
-                <p class="text-xs text-slate-500 mt-2 leading-relaxed">Distinct evaluation booklets tailored class-wise for Classes 5 to 10.</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm feature-card text-center">
-                <div class="w-12 h-12 bg-green-50 text-green-600 flex items-center justify-center text-xl mx-auto mb-4">
-                    <i class="fa-solid fa-laptop"></i>
-                </div>
-                <h4 class="font-bold text-sm text-olympiadNavy">Online Participation</h4>
-                <p class="text-xs text-slate-500 mt-2 leading-relaxed">No need to travel. Attempt safely online from the comfort of your home.</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm feature-card text-center">
-                <div class="w-12 h-12 bg-purple-50 text-purple-600 flex items-center justify-center text-xl mx-auto mb-4">
-                    <i class="fa-solid fa-award"></i>
-                </div>
-                <h4 class="font-bold text-sm text-olympiadNavy">Merit Recognition</h4>
-                <p class="text-xs text-slate-500 mt-2 leading-relaxed">High-level certificate verification and recognition for top achievers.</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm feature-card text-center">
-                <div class="w-12 h-12 bg-rose-50 text-rose-600 flex items-center justify-center text-xl mx-auto mb-4">
-                    <i class="fa-solid fa-certificate"></i>
-                </div>
-                <h4 class="font-bold text-sm text-olympiadNavy">Digital Certificates</h4>
-                <p class="text-xs text-slate-500 mt-2 leading-relaxed">Secure digital PDF certificates issued directly to every single participant.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 3: OLYMPIAD DETAILS -->
-    <section id="details" class="bg-olympiadNavy text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-xl mx-auto mb-12">
-                <h2 class="font-academic text-2xl sm:text-3xl font-extrabold text-white">Olympiad Assessment Rules</h2>
-                <div class="w-16 h-1 bg-olympiadGold mx-auto mt-2 rounded"></div>
-                <p class="text-sm text-slate-300 mt-2">Clear, fair, and structured parameters to evaluate genuine talent.</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start space-x-4">
-                    <div class="text-olympiadGold text-2xl mt-1"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="glass-card rounded-xl p-6 shadow-sm flex items-start space-x-4">
+                    <div class="p-3 bg-blue-50 text-[#0B1E36] rounded-lg text-2xl"><i class="fa-solid fa-file-pdf"></i></div>
                     <div>
-                        <h4 class="font-bold text-base text-white">Target Classes</h4>
-                        <p class="text-sm text-slate-300 mt-1">Separate standard pools for school students of Classes 5, 6, 7, 8, 9, & 10.</p>
+                        <h3 class="font-bold text-lg text-[#0B1E36]" data-en="Curriculum & Syllabus" data-ur="نصاب اور تعلیمی مواد">Curriculum & Syllabus</h3>
+                        <p class="text-slate-500 text-sm mt-1" data-en="Syllabus tailored according to national educational standards for all classes from 5 to 10." data-ur="کلاس 5 سے 10 تک تمام کیٹیگریز کے لیے تعلیمی معیار کے مطابق نصاب۔">Syllabus tailored according to national educational standards for all classes from 5 to 10.</p>
                     </div>
                 </div>
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start space-x-4">
-                    <div class="text-olympiadGold text-2xl mt-1"><i class="fa-solid fa-list-check"></i></div>
+                <div class="glass-card rounded-xl p-6 shadow-sm flex items-start space-x-4">
+                    <div class="p-3 bg-amber-50 text-[#D4AF37] rounded-lg text-2xl"><i class="fa-solid fa-award"></i></div>
                     <div>
-                        <h4 class="font-bold text-base text-white">Test Format</h4>
-                        <p class="text-sm text-slate-300 mt-1">60 high-quality, conceptually structured Multiple Choice Questions (MCQs).</p>
+                        <h3 class="font-bold text-lg text-[#0B1E36]" data-en="Sample Assessment" data-ur="نمونہ امتحانی پرچے">Sample Assessment</h3>
+                        <p class="text-slate-500 text-sm mt-1" data-en="Get standard evaluation sheets to prep students before exams." data-ur="امتحانات سے قبل تیاری کے لیے نمونہ امتحانی شیٹس حاصل کریں۔">Get standard evaluation sheets to prep students before exams.</p>
                     </div>
                 </div>
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start space-x-4">
-                    <div class="text-olympiadGold text-2xl mt-1"><i class="fa-solid fa-hourglass-half"></i></div>
+                <div class="glass-card rounded-xl p-6 shadow-sm flex items-start space-x-4">
+                    <div class="p-3 bg-green-50 text-green-600 rounded-lg text-2xl"><i class="fa-solid fa-id-card"></i></div>
                     <div>
-                        <h4 class="font-bold text-base text-white">Duration Limits</h4>
-                        <p class="text-sm text-slate-300 mt-1">You will have exactly 75 Minutes to solve and submit the online assessment.</p>
-                    </div>
-                </div>
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start space-x-4">
-                    <div class="text-olympiadGold text-2xl mt-1"><i class="fa-solid fa-globe"></i></div>
-                    <div>
-                        <h4 class="font-bold text-base text-white">Testing Mode</h4>
-                        <p class="text-sm text-slate-300 mt-1">100% Online portal. Access it from anywhere with any mobile, tablet, or PC.</p>
-                    </div>
-                </div>
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start space-x-4">
-                    <div class="text-olympiadGold text-2xl mt-1"><i class="fa-solid fa-user-lock"></i></div>
-                    <div>
-                        <h4 class="font-bold text-base text-white">Allowed Attempts</h4>
-                        <p class="text-sm text-slate-300 mt-1">Single Attempt Only. System will instantly lock on multiple browser tab entries.</p>
-                    </div>
-                </div>
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start space-x-4">
-                    <div class="text-olympiadGold text-2xl mt-1"><i class="fa-solid fa-square-minus"></i></div>
-                    <div>
-                        <h4 class="font-bold text-base text-white">Negative Marking</h4>
-                        <p class="text-sm text-slate-300 mt-1">No negative marking! Feel free to answer all questions to maximize your score.</p>
+                        <h3 class="font-bold text-lg text-[#0B1E36]" data-en="Instant Slips with QR" data-ur="رول نمبر سلپس مع QR">Instant Slips with QR</h3>
+                        <p class="text-slate-500 text-sm mt-1" data-en="Print entry admit cards instantly with an integrated fee status QR verification system." data-ur="فیس کی تصدیق والے جدید QR کوڈ سسٹم کے ساتھ فوری رول نمبر سلپ پرنٹ کریں۔">Print entry admit cards instantly with an integrated fee status QR verification system.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- SECTION 4: PRIZES & AWARDS -->
-    <section id="prizes" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-xl mx-auto mb-12">
-            <h2 class="font-academic text-2xl sm:text-3xl font-extrabold text-olympiadNavy">Exciting Cash Awards</h2>
-            <div class="w-16 h-1 bg-olympiadGold mx-auto mt-2 rounded"></div>
-            <p class="text-sm text-slate-500 mt-2">Earn cash rewards and certificates to elevate your academic profile.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end mb-8">
-            <!-- 2nd Place -->
-            <div class="bg-white border-2 border-slate-200 p-6 rounded-2xl shadow-sm text-center order-2 md:order-1 transform md:scale-95 transition-all">
-                <span class="text-4xl block mb-2">🥈</span>
-                <h3 class="font-bold text-lg text-olympiadNavy">2nd Position</h3>
-                <div class="text-2xl font-black text-slate-700 my-2">PKR 3,000</div>
-                <p class="text-xs text-slate-400">Cash Reward + Silver Merit Certificate</p>
-            </div>
-
-            <!-- 1st Place -->
-            <div class="bg-white border-4 border-olympiadGold p-8 rounded-2xl shadow-lg text-center order-1 md:order-2 relative transform md:-translate-y-4 transition-all">
-                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-olympiadGold text-olympiadNavy font-black px-4 py-1 rounded-full text-xs tracking-wider uppercase shadow">WINNER</div>
-                <span class="text-5xl block mb-2">🥇</span>
-                <h3 class="font-bold text-xl text-olympiadNavy">1st Position</h3>
-                <div class="text-3xl font-black text-olympiadGold my-2">PKR 5,000</div>
-                <p class="text-xs text-slate-400">Grand Cash Reward + Gold Medal Certificate</p>
-            </div>
-
-            <!-- 3rd Place -->
-            <div class="bg-white border-2 border-slate-200 p-6 rounded-2xl shadow-sm text-center order-3 transform md:scale-95 transition-all">
-                <span class="text-4xl block mb-2">🥉</span>
-                <h3 class="font-bold text-lg text-amber-700 my-2">3rd Position</h3>
-                <div class="text-2xl font-black text-amber-700 my-2">PKR 2,000</div>
-                <p class="text-xs text-slate-400">Cash Reward + Bronze Merit Certificate</p>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
-            <div class="bg-white border p-5 rounded-2xl flex items-center space-x-4 shadow-sm">
-                <span class="text-3xl">🏅</span>
+            <!-- ACADEMIC DIRECTOR MESSAGE SECTION (Verified Links and Fallbacks) -->
+            <div class="glass-card rounded-2xl p-8 shadow-sm flex flex-col md:flex-row items-center gap-8 border-l-4 border-[#0B1E36]">
+                <div class="w-32 h-32 rounded-full bg-slate-100 flex items-center justify-center overflow-hidden shrink-0 border-2 border-[#D4AF37] shadow-md">
+                    <!-- Live ImgBB link with direct local fallback file path -->
+                    <img src="https://i.ibb.co/N2MtcBqH/director.jpg" onerror="this.onerror=null; this.src='director-pic.png';" alt="Muhammad Hamd Sultan" class="w-full h-full object-cover block">
+                </div>
                 <div>
-                    <h5 class="font-bold text-sm text-olympiadNavy">Top 10 Merit Recognition</h5>
-                    <p class="text-xs text-slate-500 mt-0.5">Special serialized merit acknowledgment documents for high percentile ranks.</p>
+                    <h2 class="academic-title font-bold text-2xl text-[#0B1E36]" data-en="Message from Academic Director" data-ur="ڈائریکٹر اکیڈمکس کا پیغام">Message from Academic Director</h2>
+                    <p class="text-slate-600 mt-3 leading-relaxed italic" data-en="&quot;Our mission at MHS Learnings is to bring transparent, modern, and easily accessible evaluation standards for school students nationwide. This portal acts as your ultimate resource hub for syllabi, instant roll number slips, and testing guidance.&quot;" data-ur="&quot;ایم ایچ ایس لرننگز پر ہمارا مقصد ملک بھر کے اسکول کے طلباء کے لیے شفاف، جدید اور آسان امتحانی معیارات متعارف کرانا ہے۔ یہ پورٹل آپ کی تعلیمی رہنمائی کا حتمی مرکز ہے۔&quot;">"Our mission at MHS Learnings is to bring transparent, modern, and easily accessible evaluation standards for school students nationwide. This portal acts as your ultimate resource hub for syllabi, instant roll number slips, and testing guidance."</p>
+                    <p class="text-[#0B1E36] font-bold mt-4 text-base tracking-wide" data-en="— Muhammad Hamd Sultan" data-ur="— محمد حمد سلطان">— Muhammad Hamd Sultan</p>
                 </div>
             </div>
-            <div class="bg-white border p-5 rounded-2xl flex items-center space-x-4 shadow-sm">
-                <span class="text-3xl">📜</span>
-                <div>
-                    <h5 class="font-bold text-sm text-olympiadNavy">Participation Certificates</h5>
-                    <p class="text-xs text-slate-500 mt-0.5">Issued officially to every legitimate attempt record logged in the system.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SECTION 5: TEACHER AMBASSADOR PROGRAM -->
-    <section class="bg-gradient-to-br from-slate-900 to-[#0B1F4D] text-white py-14 border-t-4 border-olympiadGold">
-        <div class="max-w-4xl mx-auto px-4 text-center space-y-4">
-            <div class="w-12 h-12 bg-olympiadGold/10 border border-olympiadGold text-olympiadGold text-xl rounded-full flex items-center justify-center mx-auto shadow-inner">
-                <i class="fa-solid fa-chalkboard-user"></i>
-            </div>
-            <h2 class="font-academic text-xl sm:text-2xl font-bold tracking-wide">Teacher Ambassador Program</h2>
-            <p class="text-slate-300 text-sm max-w-xl mx-auto leading-relaxed">
-                MHS-Learnings proudly honors educators who inspire the love of mathematics. Teachers registering a delegation of 20+ students will receive special tokens of appreciation.
-            </p>
-            <div class="inline-block bg-white/5 border border-white/10 rounded-2xl p-5 mt-2 shadow-inner">
-                <p class="text-sm font-semibold text-olympiadGold">
-                    <i class="fa-solid fa-gift mr-1.5"></i> Register 20+ Students to Receive:
-                </p>
-                <span class="block text-xs text-slate-200 mt-1 leading-normal">Official Appreciation Certificate + Recognition Profile by MHS-Learnings</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 6: SYLLABUS -->
-    <section id="syllabus" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-xl mx-auto mb-12">
-            <h2 class="font-academic text-2xl sm:text-3xl font-extrabold text-olympiadNavy">Olympiad Syllabus</h2>
-            <div class="w-16 h-1 bg-olympiadGold mx-auto mt-2 rounded"></div>
-            <p class="text-sm text-slate-500 mt-1">Course outline strictly adheres to standard PCTB mathematics curriculums.</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm flex items-center justify-between">
-                <div>
-                    <span class="block text-[10px] font-bold text-olympiadGold uppercase tracking-wider">PCTB Curriculum</span>
-                    <h4 class="font-bold text-base text-olympiadNavy mt-0.5">Class 5 Mathematics</h4>
-                    <span class="text-xs text-slate-400 block mt-1"><i class="fa-solid fa-book-open mr-1"></i>Complete PCTB Textbook</span>
-                </div>
-                <div class="text-slate-300 text-3xl"><i class="fa-solid fa-calculator"></i></div>
-            </div>
-            <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm flex items-center justify-between">
-                <div>
-                    <span class="block text-[10px] font-bold text-olympiadGold uppercase tracking-wider">PCTB Curriculum</span>
-                    <h4 class="font-bold text-base text-olympiadNavy mt-0.5">Class 6 Mathematics</h4>
-                    <span class="text-xs text-slate-400 block mt-1"><i class="fa-solid fa-shapes"></i></div>
-            </div>
-            <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm flex items-center justify-between">
-                <div>
-                    <span class="block text-[10px] font-bold text-olympiadGold uppercase tracking-wider">PCTB Curriculum</span>
-                    <h4 class="font-bold text-base text-olympiadNavy mt-0.5">Class 7 Mathematics</h4>
-                    <span class="text-xs text-slate-400 block mt-1"><i class="fa-solid fa-chart-pie"></i></div>
-            </div>
-            <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm flex items-center justify-between">
-                <div>
-                    <span class="block text-[10px] font-bold text-olympiadGold uppercase tracking-wider">PCTB Curriculum</span>
-                    <h4 class="font-bold text-base text-olympiadNavy mt-0.5">Class 8 Mathematics</h4>
-                    <span class="text-xs text-slate-400 block mt-1"><i class="fa-solid fa-divide mr-1"></i></div>
-            </div>
-            <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm flex items-center justify-between">
-                <div>
-                    <span class="block text-[10px] font-bold text-olympiadGold uppercase tracking-wider">PCTB Curriculum</span>
-                    <h4 class="font-bold text-base text-olympiadNavy mt-0.5">Class 9 Mathematics</h4>
-                    <span class="text-xs text-slate-400 block mt-1"><i class="fa-solid fa-book-open mr-1"></i></div>
-            </div>
-            <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm flex items-center justify-between">
-                <div>
-                    <span class="block text-[10px] font-bold text-olympiadGold uppercase tracking-wider">PCTB Curriculum</span>
-                    <h4 class="font-bold text-base text-olympiadNavy mt-0.5">Class 10 Mathematics</h4>
-                    <span class="text-xs text-slate-400 block mt-1"><i class="fa-solid fa-book-open mr-1"></i></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INTEGRATED ACCORDION FAQ SECTION -->
-    <section class="bg-slate-100 py-16">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10">
-                <h2 class="font-academic text-2xl font-extrabold text-olympiadNavy">Frequently Asked Questions</h2>
-                <div class="w-12 h-0.5 bg-olympiadGold mx-auto mt-2"></div>
+        <!-- ================= PAGE 2: SYLLABUS ================= -->
+        <section id="page-syllabus" class="page-view">
+            <div class="text-center mb-8">
+                <h1 class="academic-title text-3xl font-bold text-[#0B1E36]" data-en="Academic Syllabus 2026" data-ur="تعلیمی نصاب برائے 2026">Academic Syllabus 2026</h1>
+                <p class="text-slate-500 mt-2" data-en="Download complete syllabus patterns for all classes from Class 5 to Class 10" data-ur="کلاس 5 سے کلاس 10 تک تمام کلاسز کے لیے مکمل نصاب ڈاؤن لوڈ کریں۔">Download complete syllabus patterns for all classes from Class 5 to Class 10</p>
             </div>
 
-            <div class="space-y-3">
-                <div class="bg-white border rounded-xl overflow-hidden shadow-sm">
-                    <button onclick="toggleFaq(1)" class="w-full text-left px-5 py-4 font-bold text-sm text-olympiadNavy flex justify-between items-center bg-slate-50/50">
-                        <span>How will I access the online test link?</span>
-                        <i id="faq-chevron-1" class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform" style="transition: transform 0.3s;"></i>
-                    </button>
-                    <div id="faq-ans-1" class="hidden px-5 py-4 text-xs text-slate-500 border-t leading-relaxed">
-                        Registered students will receive their unique online link over WhatsApp and Email exactly 24 hours prior to the test date on August 02, 2026.
-                    </div>
-                </div>
-
-                <div class="bg-white border rounded-xl overflow-hidden shadow-sm">
-                    <button onclick="toggleFaq(2)" class="w-full text-left px-5 py-4 font-bold text-sm text-olympiadNavy flex justify-between items-center bg-slate-50/50">
-                        <span>Is there any negative marking in the Olympiad test?</span>
-                        <i id="faq-chevron-2" class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform" style="transition: transform 0.3s;"></i>
-                    </button>
-                    <div id="faq-ans-2" class="hidden px-5 py-4 text-xs text-slate-500 border-t leading-relaxed">
-                        Absolutely not. There is no negative marking! Feel free to attempt all 60 MCQs confidently to achieve maximum grades within 75 minutes.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 7: REGISTRATION CALL TO ACTION -->
-    <section class="py-16 bg-gradient-to-r from-[#0B1F4D] to-[#1E3A8A] text-white text-center relative border-b-8 border-olympiadGold">
-        <div class="max-w-3xl mx-auto px-4 space-y-6 relative z-10">
-            <h2 class="font-academic text-2xl sm:text-4xl font-black tracking-wide">Secure Your Olympiad Spot</h2>
-            <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
-                Registrations are filling up fast! Submit the official Google Registration Form securely today and reserve your testing slot.
-            </p>
-            <div class="pt-2">
-                <a href="https://forms.gle/VCcAZMg7tweKcwK46" target="_blank" class="inline-flex items-center space-x-2 bg-olympiadGold hover:bg-goldHover text-olympiadNavy font-extrabold text-base px-10 py-4 rounded-xl shadow-2xl transition duration-200 transform hover:scale-105">
-                    <i class="fa-solid fa-file-signature"></i>
-                    <span>PROCEED TO GOOGLE FORMS</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 8: CONTACT INFORMATION -->
-    <section id="contact" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                <div class="w-12 h-12 bg-amber-50 text-olympiadGold text-xl rounded-full flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-phone"></i></div>
-                <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400">Primary Contact</h5>
-                <p class="text-base font-bold text-olympiadNavy mt-1">0311-6492465</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                <div class="w-12 h-12 bg-blue-50 text-blue-600 text-xl rounded-full flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400">Secondary Help Line</h5>
-                <p class="text-base font-bold text-olympiadNavy mt-1">0312-4266828</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                <div class="w-12 h-12 bg-green-50 text-green-600 text-xl rounded-full flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-envelope"></i></div>
-                <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400">E-Mail Helpdesk</h5>
-                <p class="text-sm font-bold text-olympiadNavy mt-1 break-all">mhslearnings.medical@gmail.com</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PERSISTENT FOOTER -->
-    <footer class="bg-olympiadNavy text-white py-8 border-t border-white/10 text-center">
-        <div class="max-w-7xl mx-auto px-4 text-xs space-y-2 text-slate-400">
-            <p class="font-bold text-slate-200 tracking-wide text-sm font-academic">MHS National Mathematics Olympiad 2026</p>
-            <p>&copy; 2026 MHS-Learnings. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <!-- ================= JAVASCRIPT ENGINE ================= -->
-    <script>
-        // Check if splash image loads correctly, otherwise show elegant dynamic text
-        const splashImg = document.getElementById('splash-img');
-        if(splashImg) {
-            splashImg.onerror = function () {
-                this.style.display = 'none';
-                document.getElementById('splash-backup-text').classList.remove('hidden');
-            };
-        }
-
-        // Auto Close Splash Screen after 3 seconds
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                const splash = document.getElementById('bise-splash-screen');
-                if (splash) {
-                    splash.classList.add('fade-splash-out');
-                }
-            }, 3000); 
-        });
-
-        // MOBILE HAMBURGER MENU
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('menu-icon');
-            menu.classList.toggle('hidden');
-            if(menu.classList.contains('hidden')) {
-                icon.className = "fa-solid fa-bars text-2xl";
-            } else {
-                icon.className = "fa-solid fa-xmark text-2xl";
-            }
-        }
-
-        // FAQ SWITCHER
-        function toggleFaq(id) {
-            const answer = document.getElementById(`faq-ans-${id}`);
-            const chevron = document.getElementById(`faq-chevron-${id}`);
-            answer.classList.toggle('hidden');
-            if(answer.classList.contains('hidden')) {
-                chevron.style.transform = "rotate(0deg)";
-            } else {
-                chevron.style.transform = "rotate(180deg)";
-            }
-        }
-
-        // COUNTDOWN TIMER (Target: 02 August 2026)
-        function initOlympiadCountdown() {
-            const targetDate = new Date("August 2, 2026 09:00:00").getTime();
-
-            const timerInterval = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
-
-                if (distance < 0) {
-                    clearInterval(timerInterval);
-                    document.getElementById("days").innerText = "00";
-                    document.getElementById("hours").innerText = "00";
-                    document.getElementById("minutes").innerText = "00";
-                    document.getElementById("seconds").innerText = "00";
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById("days").innerText = String(days).padStart(2, '0');
-                document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-                document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
-                document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
-            }, 1000);
-        }
-
-        window.onload = function() {
-            initOlympiadCountdown();
-        }
-    </script>
-</body>
-</html>
+            <div class="glass-card rounded-2xl shadow-sm overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-[#0B1E36] text-white">
+                                <th class="p-4 text-sm font-bold uppercase tracking-wider" data-en="Class Category" data-ur="کلاس">Class Category</th>
+                                <th class="p-4 text-sm font-bold uppercase tracking-wider" data-en="Subjects Covered" data-ur="شامل مضامین">Subjects Covered</th>
+                                <th class="p-4 text-sm font-bold uppercase tracking-wider text-center" data-en="Download File" data-ur="ڈاؤن لوڈ">Download File</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y text-slate-700 bg-white">
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 font-semibold" data-en="Class 5" data-ur="پانچویں کلاس">Class 5</td>
+                                <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, General Science" data-ur="انگریزی، اردو، ریاضی، جنرل سائنس">English, Urdu, Mathematics, General Science</td>
+                                <td class="p-4 text-center">
+                                    <a href="syllabus-class5.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
+                                        <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 font-semibold" data-en="Class 6" data-ur="چھٹی کلاس">Class 6</td>
+                                <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, General Science" data-ur="انگریزی، اردو، ریاضی، سائنس">English, Urdu, Mathematics, General Science</td>
+                                <td class="p-4 text-center">
+                                    <a href="syllabus-class6.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
+                                        <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 font-semibold" data-en="Class 7" data-ur="ساتویں کلاس">Class 7</td>
+                                <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, Science" data-ur="انگریزی، اردو، ریاضی، سائنس">English, Urdu, Mathematics, Science</td>
+                                <td class="p-4 text-center">
+                                    <a href="syllabus-class7.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg text-sm font-bold transition">
+                                        <i class="fa-solid fa-file-arrow-down"></i> <span data-en="Download PDF" data-ur="ڈاؤن لوڈ">Download</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 font-semibold" data-en="Class 8" data-ur="آٹھویں کلاس">Class 8</td>
+                                <td class="p-4 text-sm text-slate-500" data-en="English, Urdu, Mathematics, General Science" data-ur="انگریزی، اردو، ریاضی، سائنس">English, Urdu, Mathematics, General Science</td>
+                                <td class="p-4 text-center">
+                                    <a href="syllabus-class8.pdf" class="inline-flex items-center space-x-2 bg-[#0B1E36] hover:bg-[#153459] text-[#D4AF37] px-4 py-2 rounded-lg 
+                                    
